@@ -649,42 +649,6 @@ My focus lies in bridging human-centred design and engineering principles so tha
 
           <div class="sortable-list" id="projects">
             
-            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="3">
-              <img src="static/uploads/1767786687426icon_s.png" class="my_icons"> </img> 
-              <p class="justifytext">Precise Selection Technique for dense VEs</p>
-             <div class="row g-2 mt-2">
-
-  <div class="col-auto">
-    <a href="project_edit_page/3" class="btn btn-primary">
-      Edit
-    </a>
-  </div>
-
-  <div class="col-auto">
-    <form method="POST" action="/deleteproj">
-      <input type="hidden" name="delete_project" value="3">
-      <button type="submit" class="btn btn-danger">
-        Delete
-      </button>
-    </form>
-  </div>
-  
-  <div class="col-auto">
-    <form method="POST" action="/hideproj">
-      <input type="hidden" name="hide_project" value="3">
-      <button type="submit" class="btn btn-warning">
-        Hide
-      </button>
-    </form>
-  </div>
-  
-  
-</div>
-
-
- 
-            </div>
-            
             <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="2">
               <img src="static/uploads/1767258993524istockphoto-505946656-612x612.jpg" class="my_icons"> </img> 
               <p class="justifytext">Traditional Indian Games in Mixed Reality</p>
@@ -708,6 +672,42 @@ My focus lies in bridging human-centred design and engineering principles so tha
   <div class="col-auto">
     <form method="POST" action="/hideproj">
       <input type="hidden" name="hide_project" value="2">
+      <button type="submit" class="btn btn-warning">
+        Hide
+      </button>
+    </form>
+  </div>
+  
+  
+</div>
+
+
+ 
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="3">
+              <img src="static/uploads/1767786687426icon_s.png" class="my_icons"> </img> 
+              <p class="justifytext">Precise Selection Technique for dense VEs</p>
+             <div class="row g-2 mt-2">
+
+  <div class="col-auto">
+    <a href="project_edit_page/3" class="btn btn-primary">
+      Edit
+    </a>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/deleteproj">
+      <input type="hidden" name="delete_project" value="3">
+      <button type="submit" class="btn btn-danger">
+        Delete
+      </button>
+    </form>
+  </div>
+  
+  <div class="col-auto">
+    <form method="POST" action="/hideproj">
+      <input type="hidden" name="hide_project" value="3">
       <button type="submit" class="btn btn-warning">
         Hide
       </button>
