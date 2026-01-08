@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Gaurish Garg Projects</title>
+  </head>
+  <body style="background-color: #ECE8F7">
+<div class="container">
+  <br><br>
+<h2 style="text-align: center;"> Editing Precise Selection Technique for dense VEs</h2>
+
+<br>
+ <form action="/edit" method="GET" class="d-flex justify-content-center mt-4">
+  <button type="submit" class="btn btn-secondary">
+    ← Back
+  </button>
+</form>
+  <!-- EDIT PROJECT — ALL 22 FIELDS, EACH IN ITS OWN DIV WITH INDIVIDUAL SUBMIT -->
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/title">
+    <input type="hidden" name="id" value="3">
+    <label>Title</label>
+    <input class="form-control" name="title" value="Precise Selection Technique for dense VEs" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/userpersonaimage" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>User Persona Image</label>
+    <input type="file" class="form-control" name="userpersonaimage" accept="image/*" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/userquote">
+    <input type="hidden" name="id" value="3">
+    <label>User Quote</label>
+    <input class="form-control" name="userquote" value="During XR Research, sometimes I have to select very small, distant and interconnected objects where default interactions like Raycast etc. fail to work">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/problemstatement">
+    <input type="hidden" name="id" value="3">
+    <label>Problem Statement</label>
+    <input class="form-control" name="problemstatement" value="&lt;p&gt; It&#39;s challenging to select small, distant and interconnected targets in dense VR due to tracking limitations such as noise, jitter, ambiguous depth cues and uncertainty of selection with basic techniques like Raycast etc. &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/designchallenge">
+    <input type="hidden" name="id" value="3">
+    <label>Design Challenge</label>
+    <input class="form-control" name="designchallenge" value="&lt;p&gt; How can we design a VR selection technique that enables fast, accurate, and low-effort interaction with small, distant, and interconnected targets in dense virtual environments while preserving spatial orientation and minimizing cognitive and physical load &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/targetplatformimage" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Target Platform Image</label>
+    <input type="file" class="form-control" name="targetplatformimage" accept="image/*" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/goalstatement">
+    <input type="hidden" name="id" value="3">
+    <label>Goal Statement</label>
+    <input class="form-control" name="goalstatement" value="&lt;p&gt; Devise a selection technique which allows fast and accurate selection of small, distant and interconnected targets in dense virtual environments. &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/scope">
+    <input type="hidden" name="id" value="3">
+    <label>Scope</label>
+    <input class="form-control" name="scope" value="&lt;p&gt; Enhanced Selection Technique for selection of small, distant and interconnected objects in dense virtual environments using controller-free hand-based interaction &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/interactionconcept">
+    <input type="hidden" name="id" value="3">
+    <label>Interaction Concept</label>
+    <input class="form-control" name="interactionconcept" value="&lt;p&gt;     A multi-stage, spatially preserved selection workflow designed to enable     fast and accurate interaction with small, distant, and interconnected     targets in dense virtual environments.   &lt;/p&gt;    &lt;ul&gt;     &lt;li&gt;       &lt;strong&gt;Palm-based sphere casting&lt;/strong&gt; for stable and precise region       selection, reducing the impact of hand jitter and tracking noise.     &lt;/li&gt;     &lt;li&gt;       &lt;strong&gt;Rotationally independent on-body menus&lt;/strong&gt; for refinement,       allowing users to adjust selection parameters while preserving spatial       orientation.     &lt;/li&gt;     &lt;li&gt;       &lt;strong&gt;Tap-driven and pinch gestures&lt;/strong&gt; to minimize physical effort       and reduce interaction-induced jitter during selection.     &lt;/li&gt;     &lt;li&gt;       &lt;strong&gt;Progressive refinement&lt;/strong&gt; that enables precise target       acquisition without disrupting spatial context or user immersion.     &lt;/li&gt;   &lt;/ul&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss1" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Screenshot 1</label>
+    <input type="file" class="form-control" name="ss1" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss2" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Screenshot 2</label>
+    <input type="file" class="form-control" name="ss2" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss3" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Screenshot 3</label>
+    <input type="file" class="form-control" name="ss3" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss4" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Screenshot 4</label>
+    <input type="file" class="form-control" name="ss4" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb1" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Building Block 1</label>
+    <input type="file" class="form-control" name="bb1" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb2" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Building Block 2</label>
+    <input type="file" class="form-control" name="bb2" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb3" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Building Block 3</label>
+    <input type="file" class="form-control" name="bb3" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb4" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Building Block 4</label>
+    <input type="file" class="form-control" name="bb4" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/insight1">
+    <input type="hidden" name="id" value="3">
+    <label>Insight 1</label>
+    <input class="form-control" name="insight1" value="Average Object Selection Time &lt; 12 seconds">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/insight2">
+    <input type="hidden" name="id" value="3">
+    <label>Insight 2</label>
+    <input class="form-control" name="insight2" value="Low Cognitive Load (NASA-TLX score &lt; 14)">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/link">
+    <input type="hidden" name="id" value="3">
+    <label>Project Link</label>
+    <input class="form-control" name="link" value="https://github.com/gaurishgarg">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/video">
+    <input type="hidden" name="id" value="3">
+    <label>Video</label>
+    <input class="form-control" name="video" value="https://www.youtube.com/embed/KKngEcE_324?si=QhxpV4EAt4cSQBAc">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/icon" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="3">
+    <label>Icon</label>
+    <input type="file" class="form-control" name="icon" accept="image/*" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+
+<div class="mb-4">
+  
+    <div class="fw-semibold mb-2">Icon</div>
+    <img src="../static/uploads/1767786687426icon_s.png"
+         alt="Current icon"
+         class="img-thumbnail"
+         style="max-width:80px;">
+  
+</div>
+
+<div class="mb-4">
+  
+    <div class="fw-semibold mb-2">User Persona Image</div>
+    <img src="../static/uploads/1767787179538person.png"
+         alt="User persona"
+         class="img-thumbnail"
+         style="max-width:120px;">
+  
+</div>
+
+<div class="mb-4">
+  
+    <div class="fw-semibold mb-2">Target Platform Image</div>
+    <img src="../static/uploads/1767786687426meta.png"
+         alt="Target platform"
+         class="img-thumbnail"
+         style="max-width:220px;">
+  
+</div>
+
+<div class="mb-4">
+  <div class="fw-semibold mb-2">Screenshots</div>
+
+  <div class="d-flex flex-wrap gap-3">
+    
+      <img src="../static/uploads/1767786687426ss1s.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1767786687426ss2s.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1767786687426ss3s.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1767786687426ss4s.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+  </div>
+</div>
+
+<div class="mb-4">
+  <div class="fw-semibold mb-2">Building Blocks</div>
+
+  <div class="d-flex flex-wrap gap-3">
+    
+      <img src="../static/uploads/1767786687426unity.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1767786687426openxr.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1767786687426cshgarp.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1767787397243bb4s.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+  </div>
+</div>
+
+<div class="mb-4">
+  <p class="mb-1"><strong>User Quote:</strong> During XR Research, sometimes I have to select very small, distant and interconnected objects where default interactions like Raycast etc. fail to work</p>
+  <p class="mb-1"><strong>Problem Statement:</strong> &lt;p&gt; It&#39;s challenging to select small, distant and interconnected targets in dense VR due to tracking limitations such as noise, jitter, ambiguous depth cues and uncertainty of selection with basic techniques like Raycast etc. &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Design Challenge:</strong> &lt;p&gt; How can we design a VR selection technique that enables fast, accurate, and low-effort interaction with small, distant, and interconnected targets in dense virtual environments while preserving spatial orientation and minimizing cognitive and physical load &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Goal Statement:</strong> &lt;p&gt; Devise a selection technique which allows fast and accurate selection of small, distant and interconnected targets in dense virtual environments. &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Scope:</strong> &lt;p&gt; Enhanced Selection Technique for selection of small, distant and interconnected objects in dense virtual environments using controller-free hand-based interaction &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Interaction Concept:</strong> &lt;p&gt;     A multi-stage, spatially preserved selection workflow designed to enable     fast and accurate interaction with small, distant, and interconnected     targets in dense virtual environments.   &lt;/p&gt;    &lt;ul&gt;     &lt;li&gt;       &lt;strong&gt;Palm-based sphere casting&lt;/strong&gt; for stable and precise region       selection, reducing the impact of hand jitter and tracking noise.     &lt;/li&gt;     &lt;li&gt;       &lt;strong&gt;Rotationally independent on-body menus&lt;/strong&gt; for refinement,       allowing users to adjust selection parameters while preserving spatial       orientation.     &lt;/li&gt;     &lt;li&gt;       &lt;strong&gt;Tap-driven and pinch gestures&lt;/strong&gt; to minimize physical effort       and reduce interaction-induced jitter during selection.     &lt;/li&gt;     &lt;li&gt;       &lt;strong&gt;Progressive refinement&lt;/strong&gt; that enables precise target       acquisition without disrupting spatial context or user immersion.     &lt;/li&gt;   &lt;/ul&gt;</p>
+  <p class="mb-1"><strong>Insight 1:</strong> Average Object Selection Time &lt; 12 seconds</p>
+  <p class="mb-1"><strong>Insight 2:</strong> Low Cognitive Load (NASA-TLX score &lt; 14)</p>
+  <p class="mb-1"><strong>Link:</strong> https://github.com/gaurishgarg</p>
+  <p class="mb-1"><strong>Video:</strong> https://www.youtube.com/embed/KKngEcE_324?si=QhxpV4EAt4cSQBAc</p>
+</div>
+
+
+</div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

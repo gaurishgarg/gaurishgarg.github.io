@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gaurish Garg</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <div class="container" id="main_container">
+<br>
+      <form action="/" method="GET" class="d-flex justify-content-center mt-4">
+  <button type="submit" class="btn btn-primary">
+    Preview
+  </button>
+</form>
+<br>
+
+        <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#aboutSection"
+          aria-expanded="false" aria-controls="aboutSection" style="margin: 15px auto;">
+          Toggle About Section
+          </button>
+
+             
+        <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#pubsSection"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Publications Section
+          </button>
+
+             
+        <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#misc_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Miscellaneous Section
+          </button>
+
+          <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#skill_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Skills Section
+          </button>
+
+          
+          <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#education_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Education Section
+          </button>
+
+            <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#footer_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Footer Section
+          </button>
+
+           <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#project_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Projects Section
+          </button>
+
+          <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#portfolio_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Portfolio Section
+          </button>
+
+          <button class="btn btn-primary" type="button"
+          data-bs-toggle="collapse" data-bs-target="#writing_section"
+          aria-expanded="false" aria-controls="pubsSection" style="margin: 15px auto;">
+          Toggle Writing Section
+          </button>
+
+
+
+        <div class="collapse mt-3" id="aboutSection">
+          <div class="form-group">
+            <h3>Hi! Tell about yourself </h3>
+            <br> <br>
+            <form method="POST" action="/submitabout" enctype="multipart/form-data">
+              <div>
+                  <label for="name" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="name" name="name" value="Gaurish" required>
+              </div>
+
+              <div>
+                  <label for="about" class="form-label">About You</label>
+                  <textarea class="form-control" id="about" name="about" rows="4" required>As a Master of Technology in Augmented Reality and Virtual Reality from the Indian Institute of Technology (IIT) Jodhpur 🥈 (Institute Silver Medalist), I work at the intersection of design and engineering to create human-centred immersive experiences.
+My focus lies in bridging human-centred design and engineering principles so that immersive systems are not only user-friendly but also technically feasible on end systems.</textarea>
+              </div>
+
+              <div>
+                  <label for="photo" class="form-label">Choose Profile Photo</label>
+                  <label for="photo" class="form-label" id = "error", style="color: red;"></label>
+                  <input class="form-control" type="file" id="formFile" name="photo" accept="image/*" required>
+              </div>
+
+              <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+            
+
+            </form>
+        </div>
+
+        </div>
+
+     
+
+        <div id="pubsSection" class="collapse mt-3">
+          <h3>Any publications?</h3>
+          <div class ="form-group">
+             <form method="POST" action="/submitdoi" enctype="multipart/form-data">
+                <div>
+                  <label for="doi" class="form-label">Add DOI</label>
+                  <input type="url" class="form-control" id="name" name="doi" placeholder="Enter doi" required>                  
+                </div>
+
+                <div>
+                  <label for="summary" class="form-label">One Line Summary</label>
+                  <input type="text" class="form-control" id="name" name="summary" placeholder="Enter Summary of Work" required>                  
+                </div>
+
+                <div>
+                  <label for="mylink" class="form-label">Video Link</label>
+                  <input type="url" class="form-control" name="mylink" placeholder="Enter Video URL">                  
+                </div>
+
+                <div>
+                  <label for="icon" class="form-label">Choose Relevant Icon</label>
+                  <label for="icon" class="form-label" id = "error", style="color: red;"></label>
+                  <input class="form-control" type="file" id="iconfield" name="icon" accept="image/*" required>
+                </div>
+
+                <div>
+                  <label for="icon" class="form-label">Choose Representational Image</label>
+                  <label for="icon" class="form-label" id = "error2", style="color: red;"></label>
+                  <input class="form-control" type="file" id="iconfield" name="repimage" accept="image/*" required>
+                </div>
+
+                 <div>
+                  <label for="html" class="form-label">Contributions</label>
+                  <input type="text" class="form-control" name="html" placeholder="Enter Custom HTML"> 
+                </div>
+
+                <div class="d-flex justify-content-center mt-3">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+
+             </form>
+          </div>
+
+          <div class="sortable-list" id="publications">
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-doi="https://doi.org/10.1007/978-3-031-94159-7_7">
+              <img src="static/uploads/1761827545132atm-9665831_1280.png" class="my_icons"> </img> 
+              <p class="justifytext">Fraud Alert: Lessons Learned on AR-Based ATM Training in Rural India</p>
+              <p class="text-center">2025</p>
+          <div class="row g-2 mt-2">
+
+  <div class="col-auto">
+    <a href="publication_edit_page/2" class="btn btn-primary">
+      Edit
+    </a>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/deletedoi">
+      <input type="hidden" name="delete_project" value="https://doi.org/10.1007/978-3-031-94159-7_7">
+      <button type="submit" class="btn btn-danger">
+        Delete
+      </button>
+    </form>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/hidepub">
+      <input type="hidden" name="hide_publication" value="2">
+      <button type="submit" class="btn btn-warning">
+        Hide
+      </button>
+    </form>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/showpub">
+      <input type="hidden" name="show_publication" value="2">
+      <button type="submit" class="btn btn-success">
+        Show
+      </button>
+    </form>
+  </div>
+
+</div>
+
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-doi="https://doi.org/10.1007/978-3-031-80829-6_11">
+              <img src="static/uploads/1761721746162SpatialVRAudio.jpg" class="my_icons"> </img> 
+              <p class="justifytext">Spatial Audio Training for Visually Impaired Users Navigation in VR: An Analytical Approach</p>
+              <p class="text-center">2025</p>
+          <div class="row g-2 mt-2">
+
+  <div class="col-auto">
+    <a href="publication_edit_page/1" class="btn btn-primary">
+      Edit
+    </a>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/deletedoi">
+      <input type="hidden" name="delete_project" value="https://doi.org/10.1007/978-3-031-80829-6_11">
+      <button type="submit" class="btn btn-danger">
+        Delete
+      </button>
+    </form>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/hidepub">
+      <input type="hidden" name="hide_publication" value="1">
+      <button type="submit" class="btn btn-warning">
+        Hide
+      </button>
+    </form>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/showpub">
+      <input type="hidden" name="show_publication" value="1">
+      <button type="submit" class="btn btn-success">
+        Show
+      </button>
+    </form>
+  </div>
+
+</div>
+
+            </div>
+                      
+            <br>
+         
+            
+          </div>
+          <div class = "d-flex justify-content-center mt-3">
+              <form method="POST", action="/submitpubsorder" enctype="multipart/form-data">               
+
+              <input type="hidden" name="ordered_pubs" id="ordered_ids_pubs">
+              <button type="submit" class="btn btn-primary mt-3">Save Order</button>
+              </form>
+          </div>
+          
+        </div>
+        
+           <div id="misc_section" class="collapse mt-3">
+            <h3>Miscellaneous</h3>
+            <div class="row">
+              <div class="col-lg-6 d-flex justify-content-center" > 
+                <div>
+                  <img src="static/uploads/1767793657913myownlogo.png" style="max-width: 100px; max-height: 100px; margin: auto auto;">
+                  <br><br>
+                  <p>Current Logo</p>
+                </div>               
+                
+              </div>
+              <div class="col-lg-6 d-flex justify-content-center" style="margin: auto auto;">
+                <div>
+                  <img src="static/uploads/1767793657912load-33_256.gif" style="max-width: 100px; max-height: 100px; margin: auto auto;">
+                <br><br>
+                  <p>Current Loader</p>
+                </div>
+                
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <form method="POST" action="/misc"  enctype="multipart/form-data">
+                <label for="loader" class="form-label">Choose Loader</label>
+                <label for="loader" class="form-label", style="color: red;"></label>
+                <input class="form-control" type="file" name="loader" accept="image/*" required>
+
+                <label for="logo" class="form-label">Choose Logo</label>
+                <label for="logo" class="form-label", style="color: red;"></label>
+                <input class="form-control" type="file" name="logo" accept="image/*" required>               
+
+
+                  <label for="resume" class="form-label">Upload CV</label>
+                  <input type="file" class="form-control" name="resume" accept="/*.pdf" required>                  
+
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" value="gaurish_garg@outlook.com" required>                  
+
+                  <label for="linkedin" class="form-label">Linkedin</label>
+                  <input type="url" class="form-control" name="linkedin" value="https://www.instagram.com/gaurish.1999?igsh=a2N6dzl2dTRiaDVo" required>                  
+
+                  <label for="instagram" class="form-label">Instagram</label>
+                  <input type="url" class="form-control" name="instagram" value="https://www.instagram.com/gaurish.1999?igsh=a2N6dzl2dTRiaDVo"   required>                  
+
+                  <label for="topmate" class="form-label">Topmate</label>
+                  <input type="url" class="form-control" name="topmate" value="https://topmate.io/gaurish_garg" required> 
+
+                   <label for="github" class="form-label">Github</label>
+                  <input type="url" class="form-control" name="github" value="https://github.com/gaurishgarg" required> 
+                  
+                  
+                  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+              </form>
+            </div>
+            
+           </div>
+          
+
+          <div class="collapse mt-3" id="skill_section">
+          <div class="form-group">
+            <h3>Hi! Tell your Skills </h3>
+            <br> <br>
+            <form method="POST" action="/submitskills" enctype="multipart/form-data">
+              <div>
+                  <label for="skill" class="form-label">Add Skill</label>
+                  <input type="text" class="form-control" name="skill" required>
+              </div>
+              <div>
+                  <label for="skill-icon" class="form-label">Choose Relevant Icon for the Skill</label>
+                  <input class="form-control" type="file" id="formFile" name="skill-icon" accept="image/*" required>
+              </div>
+
+              <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+            
+
+            </form>
+        </div>
+
+        <div class="sortable-list" id="skills">
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="5">
+              <img src="static/uploads/1761660738262AR_Unity.png" class="my_icons"> </img> 
+              <p class="justifytext">AR Development [Unity] | AR Foundation | Vuforia</p>              
+              <form method="POST" action="/deleteskill"> <input type="hidden" name = "delete_skill" value="5">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="6">
+              <img src="static/uploads/1761660864392vr-6037930_1280.png" class="my_icons"> </img> 
+              <p class="justifytext">VR Development [Unity] | Meta OpenXR | Google XR</p>              
+              <form method="POST" action="/deleteskill"> <input type="hidden" name = "delete_skill" value="6">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="7">
+              <img src="static/uploads/1761660906198unity.png" class="my_icons"> </img> 
+              <p class="justifytext">Game Development [Unity]</p>              
+              <form method="POST" action="/deleteskill"> <input type="hidden" name = "delete_skill" value="7">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="8">
+              <img src="static/uploads/1761660961697Picture3.png" class="my_icons"> </img> 
+              <p class="justifytext">Human Computer Interaction</p>              
+              <form method="POST" action="/deleteskill"> <input type="hidden" name = "delete_skill" value="8">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="9">
+              <img src="static/uploads/1761661056107Coding.jpg" class="my_icons"> </img> 
+              <p class="justifytext">C# for Game Logic | Basic C | Basic Python</p>              
+              <form method="POST" action="/deleteskill"> <input type="hidden" name = "delete_skill" value="9">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="10">
+              <img src="static/uploads/1761661118360png-clipart-davinci-resolve-color-grading-blackmagic-design-video-editing-non-linear-editing-system-late-studio-miscellaneous-studio-thumbnail.png" class="my_icons"> </img> 
+              <p class="justifytext">Video Editing [Da Vinci Resolve]</p>              
+              <form method="POST" action="/deleteskill"> <input type="hidden" name = "delete_skill" value="10">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+                      
+            <br>
+         
+            
+          </div>
+
+            <div class = "d-flex justify-content-center mt-3">
+              <form method="POST", action="/submitskillsorder" enctype="multipart/form-data">               
+
+              <input type="hidden" name="ordered_skills" id="ordered_ids_skills">
+              <button type="submit" class="btn btn-primary mt-3">Save Order</button>
+              </form>
+          </div>
+
+        </div>
+
+
+        <div class="collapse mt-3" id="education_section">
+          <div class="form-group">
+            <h3>Educational Background </h3>
+            <br> <br>
+            <form method="POST" action="/submiteducation" enctype="multipart/form-data">
+              <div>
+                  <label for="degree" class="form-label">Degree</label>
+                  <input type="text" class="form-control" name="degree" required>
+              </div>
+              <div>
+                  <label for="specialisation" class="form-label">Specialisation</label>
+                  <input type="text" class="form-control" name="specialisation" required>
+              </div>
+              <div>
+                  <label for="grades" class="form-label">CGPA/%</label>
+                  <input type="text" class="form-control" name="grades" required>
+              </div>
+               <div>
+                  <label for="html" class="form-label">Special Mentions (Awards?) </label>
+                  <input type="text" class="form-control" name="html">
+              </div>
+              <div>
+                  <label for="icon" class="form-label">Choose Relevant Icon for the Skill</label>
+                  <input class="form-control" type="file" id="formFile" name="icon" accept="image/*" required>
+              </div>
+              <div>
+                  <label for="institute" class="form-label">Select Institute</label>
+                  <input type="text" class="form-control" name="institute" required>
+              </div>
+
+              <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+            
+
+            </form>
+        </div>
+
+        <div class="sortable-list" id="education">
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="7">
+              <img src="static/uploads/1761658559334hat_with_medal.png" class="my_icons"> </img> 
+              <p class="justifytext">M. Tech</p>              
+              <form method="POST" action="/deleteeducation"> <input type="hidden" name = "delete_education" value="7">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="9">
+              <img src="static/uploads/1761722957595hat.png" class="my_icons"> </img> 
+              <p class="justifytext">B.E.</p>              
+              <form method="POST" action="/deleteeducation"> <input type="hidden" name = "delete_education" value="9">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="11">
+              <img src="static/uploads/1767261799826unity-certified-user-vr-developer.png" class="my_icons"> </img> 
+              <p class="justifytext">Passed</p>              
+              <form method="POST" action="/deleteeducation"> <input type="hidden" name = "delete_education" value="11">
+             <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+                      
+            <br>
+         
+            
+          </div>
+
+            <div class = "d-flex justify-content-center mt-3">
+              <form method="POST", action="/submiteducationsorder" enctype="multipart/form-data">               
+
+              <input type="hidden" name="ordered_educations" id="ordered_ids_educations">
+              <button type="submit" class="btn btn-primary mt-3">Save Order</button>
+              </form>
+          </div>
+
+        </div>
+
+
+        <div id="footer_section" class="collapse mt-3">
+            <h3>Footer</h3>
+              <div class="d-flex justify-content-center" > 
+                <div>
+                  <img src="static/uploads/1767788866037myownlogo.png" style="max-width: 100px; max-height: 100px; margin: auto auto;">
+                  <br><br>
+                  <p>Current Footer Logo</p>
+                </div>               
+                
+              </div>
+              <div class="d-flex justify-content-center" style="margin: auto auto;">
+                <div>
+                  <img src="static/uploads/1767788866040banner.png" style="margin: auto auto;">
+                <br><br>
+                  <p>Current Banner</p>
+                </div>
+                
+              </div>
+           
+            <div class="form-group">
+              <form method="POST" action="/footer"  enctype="multipart/form-data">
+                <label for="footer_logo" class="form-label">Choose Footer Logo</label>                
+                <input class="form-control" type="file" name="footer_logo" accept="image/*" required>
+
+                <label for="banner" class="form-label">Choose Footer Banner</label>                
+                <input class="form-control" type="file" name="banner" accept="image/*" required>                             
+                 
+                <label for="footer_text" class="form-label">Footer Text</label>
+                <input type="text" class="form-control" name="footer_text" value="Connect with me through  &lt;a href=&#34;https://www.linkedin.com/in/gaurish-garg-arvr&#34;     target=&#34;_blank&#34;     rel=&#34;noopener noreferrer&#34;     style=&#34;color: white; text-decoration: none;&#34;&gt;    LinkedIn! &lt;/a&gt;&lt;br&gt; Game Design | AR-VR | HCI" required> 
+                  
+                <label for="copyright_text" class="form-label">Copyright Text</label>
+                <input type="text" class="form-control" name="copyright_text" value="Gaurish Garg" required> 
+                
+                  
+                  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+              </form>
+            </div>
+            
+           </div>
+
+
+
+           <div id="project_section" class="collapse mt-3">
+          <h3>Any Projects?</h3>
+          <div class ="form-group">
+             <form method="POST" action="/storeproj" enctype="multipart/form-data">
+                <div>
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" name="title"  required>                  
+                </div>
+
+                <div>
+                  <label for="userpersonaimage" class="form-label">User Persona Image (Passport) </label>
+                  <input class="form-control" type="file" name="userpersonaimage" accept="image/*" required>
+                </div>
+
+                 <div>
+                  <label for="userquote" class="form-label">User Quote</label>
+                  <input type="text" class="form-control" name="userquote">                  
+                </div>
+
+                <div>
+                  <label for="problemstatement" class="form-label">Problem Statement</label>
+                  <input type="text" class="form-control" name="problemstatement">                  
+                </div>
+
+                <div>
+                  <label for="designchallenge" class="form-label">Design Challenge</label>
+                  <input type="text" class="form-control" name="designchallenge">                  
+                </div>
+
+                <div>
+                  <label for="targetplatformimage" class="form-label">Target Platform Image (Landscape) </label>
+                  <input class="form-control" type="file" name="targetplatformimage" accept="image/*" required>
+                </div>
+
+                <div>
+                  <label for="goalstatement" class="form-label">Goal Statement</label>
+                  <input type="text" class="form-control" name="goalstatement">                  
+                </div>
+
+                  <div>
+                  <label for="scope" class="form-label">Scope</label>
+                  <input type="text" class="form-control" name="scope">                  
+                </div>
+
+                <div>
+                  <label for="interactionconcept" class="form-label">Interaction Concept</label>
+                  <input type="text" class="form-control" name="interactionconcept">                  
+                </div>
+
+                 <div>
+                  <label for="ss1" class="form-label">Screenshot 1 (Square) </label>
+                  <input class="form-control" type="file" name="ss1" accept="image/*" required>
+                </div>
+
+                 <div>
+                  <label for="ss2" class="form-label">Screenshot 2 (Square)</label>
+                  <input class="form-control" type="file" name="ss2" accept="image/*" required>
+                </div>
+
+                
+                 <div>
+                  <label for="ss3" class="form-label">Screenshot 3 (Square)</label>
+                  <input class="form-control" type="file" name="ss3" accept="image/*" required>
+                </div>
+                  <div>
+                  <label for="ss4" class="form-label">Screenshot 4 (Square)</label>
+                  <input class="form-control" type="file" name="ss4" accept="image/*" required>
+                </div>
+
+                
+                 <div>
+                  <label for="bb1" class="form-label">Building Block 1 (Landscape) </label>
+                  <input class="form-control" type="file" name="bb1" accept="image/*" required>
+                </div>
+
+                <div>
+                  <label for="bb2" class="form-label">Building Block 2 (Landscape) </label>
+                  <input class="form-control" type="file" name="bb2" accept="image/*" required>
+                </div>
+
+                <div>
+                  <label for="bb3" class="form-label">Building Block 3 (Landscape) </label>
+                  <input class="form-control" type="file" name="bb3" accept="image/*" required>
+                </div>
+
+                <div>
+                  <label for="bb4" class="form-label">Building Block 4 (Landscape) </label>
+                  <input class="form-control" type="file" name="bb4" accept="image/*" required>
+                </div>
+
+                <div>
+                  <label for="insight1" class="form-label">Insights - 1</label>
+                  <input type="text" class="form-control" name="insight1">                  
+                </div>
+
+                
+                <div>
+                  <label for="insight2" class="form-label">Insights - 2</label>
+                  <input type="text" class="form-control" name="insight2">                  
+                </div>
+     
+                
+                <div>
+                  <label for="link" class="form-label">Itch/Github Link</label>
+                  <input type="url" class="form-control"  name="link" >                  
+                </div>
+
+                <div>
+                  <label for="video" class="form-label">Video Link</label>
+                  <input type="url" class="form-control"  name="video">                  
+                </div>
+
+                <div>
+                  <label for="icon" class="form-label">Choose Relevant Icon</label>
+                  <input class="form-control" type="file" name="icon" accept="image/*" required>
+                </div>            
+
+               
+
+                <div class="d-flex justify-content-center mt-3">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+
+             </form>
+          </div>
+
+          <div class="sortable-list" id="projects">
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="3">
+              <img src="static/uploads/1767786687426icon_s.png" class="my_icons"> </img> 
+              <p class="justifytext">Precise Selection Technique for dense VEs</p>
+             <div class="row g-2 mt-2">
+
+  <div class="col-auto">
+    <a href="project_edit_page/3" class="btn btn-primary">
+      Edit
+    </a>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/deleteproj">
+      <input type="hidden" name="delete_project" value="3">
+      <button type="submit" class="btn btn-danger">
+        Delete
+      </button>
+    </form>
+  </div>
+  
+  <div class="col-auto">
+    <form method="POST" action="/hideproj">
+      <input type="hidden" name="hide_project" value="3">
+      <button type="submit" class="btn btn-warning">
+        Hide
+      </button>
+    </form>
+  </div>
+  
+  
+</div>
+
+
+ 
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="2">
+              <img src="static/uploads/1767258993524istockphoto-505946656-612x612.jpg" class="my_icons"> </img> 
+              <p class="justifytext">Traditional Indian Games in Mixed Reality</p>
+             <div class="row g-2 mt-2">
+
+  <div class="col-auto">
+    <a href="project_edit_page/2" class="btn btn-primary">
+      Edit
+    </a>
+  </div>
+
+  <div class="col-auto">
+    <form method="POST" action="/deleteproj">
+      <input type="hidden" name="delete_project" value="2">
+      <button type="submit" class="btn btn-danger">
+        Delete
+      </button>
+    </form>
+  </div>
+  
+  <div class="col-auto">
+    <form method="POST" action="/hideproj">
+      <input type="hidden" name="hide_project" value="2">
+      <button type="submit" class="btn btn-warning">
+        Hide
+      </button>
+    </form>
+  </div>
+  
+  
+</div>
+
+
+ 
+            </div>
+                      
+            <br>
+         
+            
+          </div>
+
+          <div class = "d-flex justify-content-center mt-3">
+              <form method="POST", action="/submitprojectssorder" enctype="multipart/form-data">               
+
+              <input type="hidden" name="ordered_projects" id="ordered_ids_projects">
+              <button type="submit" class="btn btn-primary mt-3">Save Order</button>
+              </form>
+          </div>
+          
+        </div>
+
+        
+        <div id="portfolio_section" class="collapse mt-3">
+          <h3>Upload Portfolio Pages</h3>
+          <div class ="form-group">
+             <form method="POST" action="/submitportfolio" enctype="multipart/form-data">
+                <div>
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" name="title" placeholder="Enter Title" required>                  
+                </div>            
+                <div>
+                  <label for="page" class="form-label">Upload Page</label>
+                  <input type="file" class="form-control" name="page" accept="/*.html" required>                  
+                </div>         
+                  
+
+                <div class="d-flex justify-content-center mt-3">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+
+             </form>
+          </div>
+
+          <div class="sortable-list" id="pages">
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="19">
+              <p class="justifytext">GlanceLatest</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="19">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="23">
+              <p class="justifytext">ESPARQ</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="23">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="24">
+              <p class="justifytext">Games</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="24">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="25">
+              <p class="justifytext">atm</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="25">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="22">
+              <p class="justifytext">Spatial_Latest</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="22">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="26">
+              <p class="justifytext">Blank</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="26">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+                      
+            <br>
+         
+            
+          </div>
+          <div class = "d-flex justify-content-center mt-3">
+              <form method="POST", action="/submitpagesorder" enctype="multipart/form-data">               
+
+              <input type="hidden" name="ordered_pages" id="ordered_ids_pages">
+              <button type="submit" class="btn btn-primary mt-3">Save Order</button>
+              </form>
+          </div>
+          
+        </div>
+
+
+
+        <div id="writing_section" class="collapse mt-3">
+          <h3>Add Writing Section</h3>
+          <div class ="form-group">
+             <form method="POST" action="/submitwriting" enctype="multipart/form-data">
+                <div>
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" name="title" placeholder="Enter Title" required>                  
+                </div>            
+                <div>
+                  <label for="url" class="form-label">Add URL</label>
+                  <input type="url" class="form-control" name="url" required>                  
+                </div>         
+                  
+
+                <div class="d-flex justify-content-center mt-3">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+
+             </form>
+          </div>
+
+          <div class="sortable-list" id="writings">
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="2">
+              <p class="justifytext">“My design is inclusive!” Really?</p>              
+              <form method="POST" action="/deletewriting"> <input type="hidden" name = "delete_writing" value="2">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
+                      
+            <br>
+         
+            
+          </div>
+          <div class = "d-flex justify-content-center mt-3">
+              <form method="POST", action="/submitwritingsorder" enctype="multipart/form-data">               
+
+              <input type="hidden" name="ordered_writings" id="ordered_ids_writings">
+              <button type="submit" class="btn btn-primary mt-3">Save Order</button>
+              </form>
+          </div>
+          
+        </div>
+
+
+
+       
+
+    </div>
+
+    <script src="static/assets/js/scripts.js"></script>
+    <script src="static/assets/js/drag.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  </body>
+</html>

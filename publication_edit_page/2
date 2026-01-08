@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Gaurish Garg Publications</title>
+  </head>
+  <body style="background-color: #ECE8F7">
+<div class="container">
+  <br><br>
+<h2 style="text-align: center;"> Editing Fraud Alert: Lessons Learned on AR-Based ATM Training in Rural India</h2>
+<br>
+
+<div class="container">
+  <br><br>
+  <h2 style="text-align:center;">Editing Publication</h2>
+  <br>
+
+  <form action="/edit" method="GET" class="d-flex justify-content-center mt-4">
+  <button type="submit" class="btn btn-secondary">
+    ← Back
+  </button>
+</form>
+
+
+  <!-- DOI -->
+  <div class="form-group mb-4">
+    <form method="POST" action="/updatepub/doi">
+      <input type="hidden" name="id" value="2">
+      <label>Add DOI</label>
+      <input type="url" class="form-control" name="doi" value="https://doi.org/10.1007/978-3-031-94159-7_7" required>
+      <button class="btn btn-sm btn-primary mt-2">Update DOI</button>
+    </form>
+  </div>
+
+  <!-- Summary -->
+  <div class="form-group mb-4">
+    <form method="POST" action="/updatepub/summary">
+      <input type="hidden" name="id" value="2">
+      <label>One Line Summary</label>
+      <input type="text" class="form-control" name="summary" value="&lt;p&gt; Created an AR ATM training app for 22+ rural seniors (ages 55–80), increasing post-training ATM confidence to 80% (median), with 68% likely to use ATMs, a transaction accuracy of 82%, and p-value &lt; 0.01 validating significant reduction in transaction time and security fears. &lt;/p&gt;" required>
+      <button class="btn btn-sm btn-primary mt-2">Update Summary</button>
+    </form>
+  </div>
+
+  <!-- Video / External Link -->
+  <div class="form-group mb-4">
+    <form method="POST" action="/updatepub/mylink">
+      <input type="hidden" name="id" value="2">
+      <label>Video Link</label>
+      <input type="url" class="form-control" name="mylink" value="https://www.youtube.com/embed/KKngEcE_324?si=nO52Y4USuiJgq3nF" required>
+      <button class="btn btn-sm btn-primary mt-2">Update Link</button>
+    </form>
+  </div>
+
+  <!-- Icon -->
+  <div class="form-group mb-4">
+    <form method="POST" action="/updatepub/icon" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="2">
+      <label>Icon</label><br>
+      
+        <img src="../static/uploads/1761827545132atm-9665831_1280.png"
+             style="max-width:80px; margin-bottom:8px;">
+      
+      <input class="form-control" type="file" name="icon" accept="image/*" required>
+      <button class="btn btn-sm btn-primary mt-2">Update Icon</button>
+    </form>
+  </div>
+
+  <!-- Representational Image -->
+  <div class="form-group mb-4">
+    <form method="POST" action="/updatepub/repimage" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="2">
+      <label>Representational Image</label><br>
+      
+      <input class="form-control" type="file" name="repimage" accept="image/*" required>
+      <button class="btn btn-sm btn-primary mt-2">Update Image</button>
+    </form>
+  </div>
+
+  <!-- Custom HTML -->
+  <div class="form-group mb-4">
+    <form method="POST" action="/updatepub/html">
+      <input type="hidden" name="id" value="2">
+      <label>Contributions</label>
+      <input type="text" class="form-control" name="html" value="&lt;p style=&#34;text-align: justify;&#34;&gt;   &lt;strong&gt;AR for Financial Inclusion:&lt;/strong&gt;   App provides life-size, hands-on ATM training via AR, targeting elderly and marginalized rural users. &lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;&lt;strong&gt;Quantified Impact:&lt;/strong&gt; 68% post-training are likely to use real ATMs; median confidence at 80%; transaction accuracy at 82%.&lt;/li&gt;    &lt;li&gt;&lt;strong&gt;Statistical Validation:&lt;/strong&gt; Repeated Measures ANOVA (p &amp;lt; 0.01) confirms significant confidence and efficiency gains after AR training.&lt;/li&gt;    &lt;li&gt;&lt;strong&gt;User-Centric Insights:&lt;/strong&gt; Standard deviation of 34.8% shows wide engagement; senior participants cut average ATM time from 71s to 15s after multiple trials.&lt;/li&gt;    &lt;li&gt;&lt;strong&gt;Societal Value:&lt;/strong&gt; Implementation helps 25% of rural cash users—reducing reliance on unsafe withdrawal channels and fostering self-reliance in digital finance.&lt;/li&gt; &lt;/ul&gt;">
+      <button class="btn btn-sm btn-primary mt-2">Update Contributions</button>
+    </form>
+  </div>
+
+
+
+</div>
+
+          
+        <p style="text-align: center;">Current Representational Image and Icon <br></p>
+
+          <div class="d-flex justify-content-center mt-3">
+  <div style="margin: auto auto;">
+ <img src = "../static/uploads/1761827545132229_cover.png" style="margin: auto auto; max-height: 315px;  object-fit: contain; display: block">
+</div>
+<div class="d-flex justify-content-center mt-3" style="margin: auto auto;">
+ <img src = "../static/uploads/1761827545132atm-9665831_1280.png" style="margin: auto auto; max-height: 315px;  object-fit: contain; display: block">
+</div>
+
+</div>
+
+
+          </div>
+        
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
