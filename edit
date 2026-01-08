@@ -761,33 +761,33 @@ My focus lies in bridging human-centred design and engineering principles so tha
 
           <div class="sortable-list" id="pages">
             
-            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="19">
-              <p class="justifytext">GlanceLatest</p>              
-              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="19">                
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="31">
+              <p class="justifytext">Glance</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="31">                
  <button type="submit" class="btn btn-danger">Delete</button></form>
             </div>
             
-            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="23">
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="32">
               <p class="justifytext">ESPARQ</p>              
-              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="23">                
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="32">                
  <button type="submit" class="btn btn-danger">Delete</button></form>
             </div>
             
-            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="24">
-              <p class="justifytext">Games</p>              
-              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="24">                
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="35">
+              <p class="justifytext">anmol</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="35">                
  <button type="submit" class="btn btn-danger">Delete</button></form>
             </div>
             
-            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="25">
-              <p class="justifytext">atm</p>              
-              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="25">                
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="34">
+              <p class="justifytext">ATM</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="34">                
  <button type="submit" class="btn btn-danger">Delete</button></form>
             </div>
             
-            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="22">
-              <p class="justifytext">Spatial_Latest</p>              
-              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="22">                
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="33">
+              <p class="justifytext">SpatialAudio</p>              
+              <form method="POST" action="/deletepage"> <input type="hidden" name = "delete_page" value="33">                
  <button type="submit" class="btn btn-danger">Delete</button></form>
             </div>
             
