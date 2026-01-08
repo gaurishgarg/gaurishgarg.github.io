@@ -842,6 +842,12 @@ My focus lies in bridging human-centred design and engineering principles so tha
               <form method="POST" action="/deletewriting"> <input type="hidden" name = "delete_writing" value="2">                
  <button type="submit" class="btn btn-danger">Delete</button></form>
             </div>
+            
+            <div class="sortable-item d-flex justify-content-center mt-3" draggable="true" data-id="5">
+              <p class="justifytext">XR Design ⇐⇒ XR Development: Not the usual handoff</p>              
+              <form method="POST" action="/deletewriting"> <input type="hidden" name = "delete_writing" value="5">                
+ <button type="submit" class="btn btn-danger">Delete</button></form>
+            </div>
                       
             <br>
          
