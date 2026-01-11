@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Gaurish Garg Projects</title>
+  </head>
+  <body style="background-color: #ECE8F7">
+<div class="container">
+  <br><br>
+<h2 style="text-align: center;"> Editing WOW! Wizard on Watch in VR</h2>
+
+<br>
+ <form action="/edit" method="GET" class="d-flex justify-content-center mt-4">
+  <button type="submit" class="btn btn-secondary">
+    ← Back
+  </button>
+</form>
+  <!-- EDIT PROJECT — ALL 22 FIELDS, EACH IN ITS OWN DIV WITH INDIVIDUAL SUBMIT -->
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/title">
+    <input type="hidden" name="id" value="4">
+    <label>Title</label>
+    <input class="form-control" name="title" value="WOW! Wizard on Watch in VR" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/userpersonaimage" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>User Persona Image</label>
+    <input type="file" class="form-control" name="userpersonaimage" accept="image/*" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/userquote">
+    <input type="hidden" name="id" value="4">
+    <label>User Quote</label>
+    <input class="form-control" name="userquote" value="As an XR user, I find it difficult to remember mid-air interactions. It would be nice to have a handy, all-in-one interface for interactions in VR">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/problemstatement">
+    <input type="hidden" name="id" value="4">
+    <label>Problem Statement</label>
+    <input class="form-control" name="problemstatement" value="&lt;p&gt; For various VR tasks, we rely on different interactions, be it raycast or pinch to select. However, in complex interaction scenarios, combination of different interactions adds cognitive load, making interaction difficult &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/designchallenge">
+    <input type="hidden" name="id" value="4">
+    <label>Design Challenge</label>
+    <input class="form-control" name="designchallenge" value="&lt;p&gt; How can we design an interface that provides a handy all-in-one interface for interaction in VR &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/targetplatformimage" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Target Platform Image</label>
+    <input type="file" class="form-control" name="targetplatformimage" accept="image/*" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/goalstatement">
+    <input type="hidden" name="id" value="4">
+    <label>Goal Statement</label>
+    <input class="form-control" name="goalstatement" value="&lt;p&gt; Developing a User Interface that provides interactive cues for quick interactions&lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/scope">
+    <input type="hidden" name="id" value="4">
+    <label>Scope</label>
+    <input class="form-control" name="scope" value="&lt;p&gt; Design of an intuitive user interface for interaction in VR &lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/interactionconcept">
+    <input type="hidden" name="id" value="4">
+    <label>Interaction Concept</label>
+    <input class="form-control" name="interactionconcept" value="&lt;p&gt; A wearable touchpad pooping out of user&#39;s virtual wristwatch&lt;/p&gt;">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss1" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Screenshot 1</label>
+    <input type="file" class="form-control" name="ss1" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss2" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Screenshot 2</label>
+    <input type="file" class="form-control" name="ss2" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss3" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Screenshot 3</label>
+    <input type="file" class="form-control" name="ss3" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/ss4" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Screenshot 4</label>
+    <input type="file" class="form-control" name="ss4" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb1" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Building Block 1</label>
+    <input type="file" class="form-control" name="bb1" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb2" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Building Block 2</label>
+    <input type="file" class="form-control" name="bb2" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb3" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Building Block 3</label>
+    <input type="file" class="form-control" name="bb3" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/bb4" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Building Block 4</label>
+    <input type="file" class="form-control" name="bb4" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/insight1">
+    <input type="hidden" name="id" value="4">
+    <label>Insight 1</label>
+    <input class="form-control" name="insight1" value="Aesthetic User Interface">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/insight2">
+    <input type="hidden" name="id" value="4">
+    <label>Insight 2</label>
+    <input class="form-control" name="insight2" value="Portable">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/link">
+    <input type="hidden" name="id" value="4">
+    <label>Project Link</label>
+    <input class="form-control" name="link" value="">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/video">
+    <input type="hidden" name="id" value="4">
+    <label>Video</label>
+    <input class="form-control" name="video" value="">
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+<div class="form-group mb-4">
+  <form method="POST" action="/updateproj/icon" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="4">
+    <label>Icon</label>
+    <input type="file" class="form-control" name="icon" accept="image/*" required>
+    <button class="btn btn-sm btn-primary mt-2">Update</button>
+  </form>
+</div>
+
+
+<div class="mb-4">
+  
+    <div class="fw-semibold mb-2">Icon</div>
+    <img src="../static/uploads/1768117702661t0icon.png"
+         alt="Current icon"
+         class="img-thumbnail"
+         style="max-width:80px;">
+  
+</div>
+
+<div class="mb-4">
+  
+    <div class="fw-semibold mb-2">User Persona Image</div>
+    <img src="../static/uploads/1768117702661person.png"
+         alt="User persona"
+         class="img-thumbnail"
+         style="max-width:120px;">
+  
+</div>
+
+<div class="mb-4">
+  
+    <div class="fw-semibold mb-2">Target Platform Image</div>
+    <img src="../static/uploads/1768117702661meta.png"
+         alt="Target platform"
+         class="img-thumbnail"
+         style="max-width:220px;">
+  
+</div>
+
+<div class="mb-4">
+  <div class="fw-semibold mb-2">Screenshots</div>
+
+  <div class="d-flex flex-wrap gap-3">
+    
+      <img src="../static/uploads/1768117702661t0.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1768117702661ta.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1768117702661tb.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1768117702661tc.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+  </div>
+</div>
+
+<div class="mb-4">
+  <div class="fw-semibold mb-2">Building Blocks</div>
+
+  <div class="d-flex flex-wrap gap-3">
+    
+      <img src="../static/uploads/1768117702661unity.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1768117702661openxr.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1768117702661cshgarp.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+
+    
+      <img src="../static/uploads/1768117702661bb4s.png"
+           class="img-thumbnail"
+           style="max-width:220px;">
+    
+  </div>
+</div>
+
+<div class="mb-4">
+  <p class="mb-1"><strong>User Quote:</strong> As an XR user, I find it difficult to remember mid-air interactions. It would be nice to have a handy, all-in-one interface for interactions in VR</p>
+  <p class="mb-1"><strong>Problem Statement:</strong> &lt;p&gt; For various VR tasks, we rely on different interactions, be it raycast or pinch to select. However, in complex interaction scenarios, combination of different interactions adds cognitive load, making interaction difficult &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Design Challenge:</strong> &lt;p&gt; How can we design an interface that provides a handy all-in-one interface for interaction in VR &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Goal Statement:</strong> &lt;p&gt; Developing a User Interface that provides interactive cues for quick interactions&lt;/p&gt;</p>
+  <p class="mb-1"><strong>Scope:</strong> &lt;p&gt; Design of an intuitive user interface for interaction in VR &lt;/p&gt;</p>
+  <p class="mb-1"><strong>Interaction Concept:</strong> &lt;p&gt; A wearable touchpad pooping out of user&#39;s virtual wristwatch&lt;/p&gt;</p>
+  <p class="mb-1"><strong>Insight 1:</strong> Aesthetic User Interface</p>
+  <p class="mb-1"><strong>Insight 2:</strong> Portable</p>
+  <p class="mb-1"><strong>Link:</strong> </p>
+  <p class="mb-1"><strong>Video:</strong> </p>
+</div>
+
+
+</div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
