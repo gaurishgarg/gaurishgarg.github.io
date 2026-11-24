@@ -1,0 +1,22 @@
+/* Homepage sections - an add-on stylesheet (style.css / responsive.css are untouched).
+   Each menu link lands with the section heading right under the sticky menu (--nav-h is set by section-flow.js),
+   and the gaps between sections are kept compact so the page scrolls as one continuous whole. */
+:root { --nav-h: 110px; }
+
+#scholastics, #publication, #project, #skills {
+    scroll-margin-top: calc(var(--nav-h) + 8px);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+/* the small divider bar between sections: much less air around it */
+hr.soft-divider { margin: 1rem auto !important; }
+
+/* Publications / Projects on the home page: template names become small tags on each card, and every card in a row is the same height */
+.card-tag-row > [class*="col-"] { display: flex; }
+.card-tag-row > [class*="col-"] > a { display: block; width: 100%; }
+.card-tag-row .d2c_card_wrapper { height: calc(100% - 24pt); }
+.card-tag-row h4 { text-transform: none; text-align: left; }
+.card-tag {
+    display: inline-block; margin: 14px 0 8px; padding: 4px 13px; border-radius: 999px; font-size: .78rem; line-height: 1.4;
+    letter-spacing: .03em; color: #8fc3ff; background: rgba(143, 195, 255, 0.12); border: 1px solid rgba(143, 195, 255, 0.35);
+}

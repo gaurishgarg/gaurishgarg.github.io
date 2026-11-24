@@ -1,0 +1,122 @@
+/* Detail pages (projects / publications) - an add-on stylesheet; style.css / responsive.css are untouched.
+   1) body text in the section cards a little larger   2) rounded corners on every image, video and 3D viewer */
+body.detail-page .d2c_service_wrapper .d2c_card_wrapper,
+body.detail-page .d2c_service_wrapper .d2c_card_wrapper p,
+body.detail-page .d2c_service_wrapper .d2c_card_wrapper li,
+body.detail-page .d2c_service_wrapper .d2c_card_wrapper span,
+body.detail-page .fold-card-inner,
+body.detail-page .fold-card-inner p,
+body.detail-page .fold-card-inner li {
+    font-size: 19px;
+    line-height: 1.65;
+}
+@media (min-width: 992px) {
+    /* the page is drawn at 90% on laptops (laptop-fit.css), so 21px reads as ~19px */
+    body.detail-page .d2c_service_wrapper .d2c_card_wrapper,
+    body.detail-page .d2c_service_wrapper .d2c_card_wrapper p,
+    body.detail-page .d2c_service_wrapper .d2c_card_wrapper li,
+    body.detail-page .d2c_service_wrapper .d2c_card_wrapper span {
+        font-size: 21px;
+    }
+    body.detail-page .fold-card-inner,
+    body.detail-page .fold-card-inner p,
+    body.detail-page .fold-card-inner li { font-size: 19px; }   /* 3-up cards are narrower: 19px x 90% */
+}
+body.detail-page img,
+body.detail-page iframe,
+body.detail-page model-viewer,
+body.detail-page video {
+    border-radius: 12pt;
+}
+/* larger figures must never spill out of their column */
+body.detail-page img { max-width: 100%; }
+
+
+/* ---- card layout (mixed grid) ---- */
+body.detail-page .fold-grid {
+    display: grid; gap: 22px; align-items: stretch; grid-template-columns: 1fr;
+    padding-top: 22px; padding-bottom: 22px;
+}
+@media (min-width: 768px) { body.detail-page .fold-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 992px) { body.detail-page .fold-grid { grid-template-columns: repeat(3, 1fr); } }
+body.detail-page .fold-card.wide { grid-column: 1 / -1; }
+
+body.detail-page .fold-card {
+    position: relative; min-width: 0; color: #fff;
+    background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 14pt;
+    padding: 22px 24px 20px; backdrop-filter: blur(4.5px); -webkit-backdrop-filter: blur(4.5px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.55);
+    transition: border-color .3s, transform .3s, background .3s;
+}
+body.detail-page .fold-card:hover { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
+/* sections that are already made of cards: no second frame around them */
+body.detail-page .fold-card.fold-bare { background: none; border-color: transparent; box-shadow: none; padding: 4px 0 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.detail-page .fold-card.fold-bare:hover { transform: none; background: none; border-color: transparent; }
+
+body.detail-page .fold-card-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; margin-bottom: 12px; }
+body.detail-page .fold-card-head::before { content: none; }
+body.detail-page .fold-card-head h3 {
+    margin: 0; color: #8fc3ff; font-size: .95rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; text-align: left;
+}
+body.detail-page .fold-card.fold-text .fold-card-head h3::before,
+body.detail-page .fold-card.fold-plain .fold-card-head h3::before {
+    content: ""; display: block; width: 28px; height: 3px; border-radius: 3px; margin-bottom: 10px; background: #8fc3ff;
+}
+body.detail-page .fold-card.fold-gallery .fold-card-head,
+body.detail-page .fold-card.fold-bare .fold-card-head { align-items: center; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+body.detail-page .fold-card[role], body.detail-page .fold-card-head[role="button"] { cursor: pointer; user-select: none; }
+body.detail-page .fold-card-head:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.6); outline-offset: 4px; border-radius: 8px; }
+
+body.detail-page .fold-chev {
+    flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.28); background: rgba(255, 255, 255, 0.06); transition: transform .35s ease, background .3s;
+}
+body.detail-page .fold-chev svg { width: 13px; height: 13px; fill: none; stroke: #fff; stroke-width: 2.2; }
+body.detail-page .fold-card-head:hover .fold-chev { background: rgba(255, 255, 255, 0.16); }
+body.detail-page .fold-card.is-open > .fold-card-head .fold-chev { transform: rotate(180deg); }
+
+body.detail-page .fold-card-body { overflow: hidden; transition: height .4s ease; }
+body.detail-page .fold-card-inner { color: rgba(255, 255, 255, 0.9); }
+body.detail-page .fold-card-inner > :last-child { margin-bottom: 0; }
+body.detail-page .fold-card-inner p,
+body.detail-page .fold-card-inner li { color: rgba(255, 255, 255, 0.9); font-weight: 400; margin-bottom: .6em; }
+body.detail-page .fold-card-inner b, body.detail-page .fold-card-inner strong { color: #fff; font-weight: 700; }
+/* fade out the cut-off line while a text card is folded */
+body.detail-page .fold-card.fold-text:not(.is-open):not(.is-static) .fold-card-body {
+    -webkit-mask-image: linear-gradient(#000 62%, transparent); mask-image: linear-gradient(#000 62%, transparent);
+}
+/* nested bootstrap rows inside a card should not poke out */
+body.detail-page .fold-card-inner > .row { margin-left: 0; margin-right: 0; }
+body.detail-page .fold-card.fold-bare .fold-card-inner > .row { margin-left: -12px; margin-right: -12px; }
+
+body.detail-page .fold-more {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding: 12px 0 0; background: none; border: 0; align-self: flex-start;
+    color: rgba(255, 255, 255, 0.85); font-size: 14px; letter-spacing: .04em; cursor: pointer;
+}
+body.detail-page .fold-more:hover { color: #fff; }
+body.detail-page .fold-more .fold-chev { width: 22px; height: 22px; }
+body.detail-page .fold-more .fold-chev svg { width: 10px; height: 10px; }
+body.detail-page .fold-card.is-open > .fold-more .fold-chev { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) {
+    body.detail-page .fold-card, body.detail-page .fold-card-body, body.detail-page .fold-chev { transition: none; }
+}
+
+/* ---- picture cards: every image in one row (up to 4 per row), sized by CSS ---- */
+body.detail-page .fold-gallery .fold-card-inner > .row {
+    display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 18px;
+    margin: 0; align-items: center; padding-top: 6px;
+}
+body.detail-page .fold-gallery .fold-card-inner > .row > * {
+    width: auto; max-width: none; flex: none; padding: 0 !important; margin: 0; justify-content: center;
+}
+body.detail-page .fold-gallery img { width: auto; height: auto !important; max-width: 100%; max-height: 340px; }
+@media (max-width: 991px) { body.detail-page .fold-gallery .fold-card-inner > .row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 575px) { body.detail-page .fold-gallery .fold-card-inner > .row { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---- one uniform card for every text block: same size per row, "Read more" pinned to the bottom ---- */
+body.detail-page .fold-card.fold-text, body.detail-page .fold-card.fold-plain { display: flex; flex-direction: column; }
+body.detail-page .fold-card.fold-text .fold-card-body, body.detail-page .fold-card.fold-plain .fold-card-body { flex: 0 0 auto; }
+body.detail-page .fold-card.fold-plain .fold-card-inner { display: flex; justify-content: center; }
+/* the site's own stylesheet title-cases every <li> ("For Stable And Precise ..."): show text as it was typed */
+body.detail-page .fold-card-inner, body.detail-page .fold-card-inner p, body.detail-page .fold-card-inner li,
+body.detail-page .fold-card-inner span, body.detail-page .fold-card-inner div { text-transform: none; }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="data:,">
     <!-- default meta title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,6 @@
     <meta property="og:image" content="https://www.designtocodes.com/wp-content/uploads/2023/08/TechStart-Pro-Responsive-Bootstrap-Landing-Page.jpg/">
     <!-- title -->
     <title>Gaurish's Writings</title>
-    <!-- favicon -->
-     
-    <link rel="icon" id="favicon" href="static/assets/images/favicon.png" type="image/gif" sizes="16x16">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +33,7 @@
     <link rel="stylesheet" href="static/assets/css/style.css">
     <!-- responsive css -->
     <link rel="stylesheet" href="static/assets/css/responsive.css">
+    <link rel="stylesheet" href="static/assets/css/laptop-fit.css">
 </head>
 <body>
     <!--  preloader start  -->
@@ -62,25 +61,42 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#home">About </a>
                         </li>
-                           <li class="nav-item">
+                           
+                        <li class="nav-item">
                             <a class="nav-link" href="index.html#scholastics">Scholastics</a>
-                        </li>  
+                        </li>
+                          
                             
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#publication">Publications</a>
                         </li>
+                        
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#project">Projects</a>
-                        </li>   
-                         <li class="nav-item">
+                        </li>
+                           
+                         
+                        <li class="nav-item">
                             <a class="nav-link" href="index.html#skills">Skills</a>
                         </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="artifacts.html">Commercial Artifacts</a>
+                        </li>
+                        
+                        
                         <li class="nav-item">
                             <a class="nav-link active" href="writings.html">Writing</a>
                         </li>
-                         <li class="nav-item">
+                        
+                         
+                        <li class="nav-item">
                             <a class="nav-link" href="resume.html">My works at a Glance</a>
-                        </li>                                             
+                        </li>
+                                                                     
                                        
                     </ul>
                 </div>
@@ -106,68 +122,74 @@
     <!-- header end -->
     
     <main>
-        <div class="d2c_hero_bg">
+        <div class="d2c_hero_bg listing-hero-bg">
             
             
 
 
 
-       <section class="d2c_service_wrapper" id="scholastics">
-
+       <!-- hero start (same format as the home page, sized to its content) -->
+            <section class="d2c_hero_wrapper" id="home" style="height:auto; padding: 56px 0 0;">
                 <div class="container">
-
-                       
-                                <div class="row">
-                                    <!-- <a href="" target="_blank" style="text-decoration: none; color: inherit;"> -->
-                                    
-
-                                    <div class="d2c_card_wrapper" style="text-align: justify;">
-                                        <!-- icon wrapper prevnts cnetering -->
-                                       <a href="https://medium.com/@gaurish.garg.official/my-design-is-inclusive-really-7f28a1b6d844">
-
-                                      <h4>“My design is inclusive!” Really? </h4> 
-
-
-                                       </a>
-
-                                       
-                              
-                                    </div>
-                                    
-                                   
-
-                                </div>
-
-                                 <br><br>
-                                
-                                <div class="row">
-                                    <!-- <a href="" target="_blank" style="text-decoration: none; color: inherit;"> -->
-                                    
-
-                                    <div class="d2c_card_wrapper" style="text-align: justify;">
-                                        <!-- icon wrapper prevnts cnetering -->
-                                       <a href="https://medium.com/@gaurish.garg.official/xr-design-xr-development-not-the-usual-handoff-eba09dff3f45">
-
-                                      <h4>XR Design ⇐⇒ XR Development: Not the usual handoff </h4> 
-
-
-                                       </a>
-
-                                       
-                              
-                                    </div>
-                                    
-                                   
-
-                                </div>
-
-                                 <br><br>
-                                  
-                  
+                    <h1>My <span>Writing</span></h1>
+                    <p style="margin-bottom:0;">Articles on LinkedIn and Medium.</p>
                 </div>
             </section>
+            <!-- hero end -->
 
-        <hr style="border: 3.5px dashed white;">
+            <section class="d2c_service_wrapper" id="writing" style="padding-top: 24px;">
+
+                <style>
+                  /* small, page-local styling for the link buttons (site stylesheets untouched) */
+                  .w-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+                  .w-link { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px;
+                            background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); color: #fff !important;
+                            text-decoration: none !important; font-size: 14px; line-height: 1; transition: background .2s, border-color .2s, transform .2s; }
+                  .w-link:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.4); transform: translateY(-1px); }
+                  .w-link svg { width: 20px; height: 20px; flex: none; display: block; }
+                  .w-card h4 { margin: 0; }
+                  /* header + cards fill the screen like the home hero, so the banner sits below the fold (phones: content height) */
+                  @media (min-width: 768px) { .listing-hero-bg { min-height: 92vh; } }
+                </style>
+
+                <div class="container">
+                    <div class="row">
+                       
+                        <div class="col-xl-4 col-md-6" style="padding: 12pt;">
+                            <div class="d2c_card_wrapper w-card" style="text-align: justify; margin: 12pt auto;">
+                                <h4>“My design is inclusive!” Really?</h4>
+                                <div class="w-links">
+                                    
+                                    
+                                    <a class="w-link" href="https://medium.com/@gaurish.garg.official/my-design-is-inclusive-really-7f28a1b6d844" target="_blank" rel="noopener" aria-label="Read on Medium">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4.5" fill="#fff"/><path fill="#000" d="M13.6 12c0 2.9-2.3 5.2-5.1 5.2S3.4 14.9 3.4 12 5.7 6.8 8.5 6.8s5.1 2.3 5.1 5.2zm5.6 0c0 2.74-1.15 4.96-2.56 4.96S14.1 14.74 14.1 12s1.15-4.96 2.54-4.96S19.2 9.26 19.2 12zm2.4 0c0 2.45-.4 4.44-.9 4.44s-.9-1.99-.9-4.44.4-4.44.9-4.44.9 1.99.9 4.44z"/></svg>
+                                        Medium
+                                    </a>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-xl-4 col-md-6" style="padding: 12pt;">
+                            <div class="d2c_card_wrapper w-card" style="text-align: justify; margin: 12pt auto;">
+                                <h4>XR Design ⇐⇒ XR Development: Not the usual handoff</h4>
+                                <div class="w-links">
+                                    
+                                    
+                                    <a class="w-link" href="https://medium.com/@gaurish.garg.official/xr-design-xr-development-not-the-usual-handoff-eba09dff3f45" target="_blank" rel="noopener" aria-label="Read on Medium">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4.5" fill="#fff"/><path fill="#000" d="M13.6 12c0 2.9-2.3 5.2-5.1 5.2S3.4 14.9 3.4 12 5.7 6.8 8.5 6.8s5.1 2.3 5.1 5.2zm5.6 0c0 2.74-1.15 4.96-2.56 4.96S14.1 14.74 14.1 12s1.15-4.96 2.54-4.96S19.2 9.26 19.2 12zm2.4 0c0 2.45-.4 4.44-.9 4.44s-.9-1.99-.9-4.44.4-4.44.9-4.44.9 1.99.9 4.44z"/></svg>
+                                        Medium
+                                    </a>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
 
 
             
@@ -189,25 +211,16 @@
 
             <!-- hero end -->
         </div>
-        
-     
-    
-        <div class="d2c_shade_bg_wrapper">
-
-             
-           
-        </div>
-    
-        
-    
-
-    
-        <!-- newsletter section start -->
-             
-            <img src = "static/uploads/1767788866040banner.png" width="100%">
 
        
     
+        <div class="d2c_shade_bg_wrapper">
+
+        </div>
+
+        <!-- banner -->
+        <img src = "static/uploads/1767788866040banner.png" width="100%">
+
         <!-- footer section start -->
         <footer class="d2c_footer_wrapper" id="myfooter">
             <div class="container">

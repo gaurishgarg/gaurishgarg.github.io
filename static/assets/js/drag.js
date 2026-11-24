@@ -84,6 +84,10 @@ function dragend(e){
        if(dragging_from_list == document.getElementById("writings")){
         getrevisedorderwritings(dragging_from_list);
     }
+
+    if(dragging_from_list == document.getElementById("artifacts_list")){
+        getrevisedorderartifacts(dragging_from_list);
+    }
     
     
     
@@ -151,6 +155,17 @@ for(var i=0;i<items.length;i++){
 }
 document.getElementById("ordered_ids_pages").value = JSON.stringify(order)
 console.log(order);
+}
+
+
+function getrevisedorderartifacts(container){
+items = container.getElementsByClassName("sortable-item");
+order = [];
+for(var i=0;i<items.length;i++){
+    var id = items[i].dataset.id;
+    order.push({ id: id, position: i });
+}
+document.getElementById("ordered_ids_artifacts").value = JSON.stringify(order)
 }
 
 

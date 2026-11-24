@@ -1,0 +1,8 @@
+/* Laptop fit - an add-on stylesheet (style.css / responsive.css are untouched).
+   On laptop / desktop widths the whole page is drawn ~10% smaller; phones and tablets are not affected. */
+@media (min-width: 992px) {
+    body { zoom: 0.9; }
+    /* the home hero is meant to fill the screen (92vh): undo the shrink for that one height */
+    .d2c_hero_wrapper { height: calc(92vh / 0.9); }
+    .listing-hero-bg { min-height: calc(92vh / 0.9); }
+}
