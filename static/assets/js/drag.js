@@ -88,6 +88,14 @@ function dragend(e){
     if(dragging_from_list == document.getElementById("artifacts_list")){
         getrevisedorderartifacts(dragging_from_list);
     }
+
+    if(dragging_from_list == document.getElementById("certifications_list")){
+        getrevisedorderlist(dragging_from_list, "ordered_ids_certifications");
+    }
+
+    if(dragging_from_list == document.getElementById("conferences_list")){
+        getrevisedorderlist(dragging_from_list, "ordered_ids_conferences");
+    }
     
     
     
@@ -166,6 +174,16 @@ for(var i=0;i<items.length;i++){
     order.push({ id: id, position: i });
 }
 document.getElementById("ordered_ids_artifacts").value = JSON.stringify(order)
+}
+
+
+function getrevisedorderlist(container, inputId){
+var rows = container.getElementsByClassName("sortable-item");
+var result = [];
+for(var i=0;i<rows.length;i++){
+    result.push({ id: rows[i].dataset.id, position: i });
+}
+document.getElementById(inputId).value = JSON.stringify(result)
 }
 
 
