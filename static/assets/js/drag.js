@@ -96,6 +96,10 @@ function dragend(e){
     if(dragging_from_list == document.getElementById("conferences_list")){
         getrevisedorderlist(dragging_from_list, "ordered_ids_conferences");
     }
+
+    if(dragging_from_list == document.getElementById("repos_list")){
+        getrevisedorderlist(dragging_from_list, "ordered_ids_repos");
+    }
     
     
     
