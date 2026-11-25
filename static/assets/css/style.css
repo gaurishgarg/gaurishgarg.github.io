@@ -973,3 +973,8 @@ textarea {
     Author URL: https://www.designtocodes.com
     Text Domain: {{ Tech Start Pro }}
  */
+
+/* respect reduced-motion preferences: skip the animated loader */
+@media (prefers-reduced-motion: reduce) {
+  .preloader { display: none !important; }
+}
