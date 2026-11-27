@@ -100,6 +100,10 @@ function dragend(e){
     if(dragging_from_list == document.getElementById("repos_list")){
         getrevisedorderlist(dragging_from_list, "ordered_ids_repos");
     }
+
+    if(dragging_from_list == document.getElementById("photos_list")){
+        getrevisedorderlist(dragging_from_list, "ordered_ids_photos");
+    }
     
     
     

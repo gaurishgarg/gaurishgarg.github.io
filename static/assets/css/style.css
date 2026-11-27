@@ -43,8 +43,12 @@ section {
 }
 /* selection */
 ::selection {
-    color: var(--default_color);
-    background: var(--primary_color);
+    color: #FFFFFF;
+    background: #2f5597; /* blue from the page's dark-navy theme, so selected text stays readable */
+}
+::-moz-selection {
+    color: #FFFFFF;
+    background: #2f5597;
 }
 /* selection */
 /* typography */
@@ -137,6 +141,13 @@ img {
     background: var(--secondary_color);
     border: 1px solid var(--primary_color);
     transition: 0.4s all;
+}
+/* home page action buttons: one row on wide screens, a 2 x 2 grid on small ones */
+.hero-actions { display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px; margin-top: 16px; }
+.hero-actions .btn { padding: 12px 16px; font-size: 15px; white-space: nowrap; text-align: center; }
+@media (max-width: 767px) {
+    .hero-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .hero-actions .btn { padding: 12px 8px; }
 }
 /* about and feature section img style start */
 .d2c_img_container .d2c_img_wrapper:first-child {

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <!-- default meta title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OG Meta Tag -->
+    <meta name="description" content="Photos from the research, conferences and projects of Gaurish Garg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gallery | Gaurish Garg">
+    <meta property="og:description" content="Photos from the research, conferences and projects of Gaurish Garg">
+    <meta property="og:image" content="https://gaurishgarg.github.io/static/uploads/1795752110477thelogo.png">
+    <!-- title -->
+    <title>Gaurish's Gallery</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- font awesome 5 cdn/ icon link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Slider CSS Link -->
+     
+    <link rel="stylesheet" href="static/lib/slick-1.8.1/slick/slick.css">
+
+    
+    <link rel="stylesheet" href="static/lib/slick-1.8.1/slick/slick-theme.css">
+    <!-- fancybox image gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <!-- bootstrap css -->
+     
+    <link rel="stylesheet" href="static/lib/bootstrap-5/css/bootstrap.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="static/assets/css/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="static/assets/css/responsive.css">
+    <link rel="stylesheet" href="static/assets/css/laptop-fit.css">
+    <script>
+      /* intro animation: once per browser, never when coming from the card QR (?ar=1), skipped for reduced motion; ?intro=1 replays it */
+      (function () {
+        try {
+          var q = location.search, seen = localStorage.getItem('gg_intro_seen'), ar = /[?&]ar=1\b/.test(q), force = /[?&]intro=1\b/.test(q),
+              calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (ar) { localStorage.setItem('gg_intro_seen', '1'); }
+          if (!calm && (force || (!seen && !ar))) document.documentElement.classList.add('intro-on');
+        } catch (e) { /* storage blocked: no intro */ }
+        if (/[?&]ar=1\b/.test(location.search)) document.documentElement.classList.add('ar-mode');   /* opened from the card's QR code: AR only */
+      })();
+    </script>
+    <style>html.ar-mode body > *:not(#arOverlay) { display: none !important; }</style>
+</head>
+<body>
+    <!--  preloader start  -->
+    <div class="preloader">
+        <img src="static/uploads/1795752110477theloader.gif" alt="Preloader Logo">
+    </div>
+    <!--  preloader end  -->
+
+    <!-- header start -->
+    <header class="d2c_navbar sticky-top">
+        <div class="container">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg px-0 py-0" id="d2c_main_nav">
+                <!-- logo -->
+                <a class="navbar-brand" href="#"><img src="static/uploads/1795752110477thelogo.png" class="w-100" alt="Logo" style="max-width: 180px; max-height: 46px;"></a>
+                <!-- logo -->
+                <!-- hamburger -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <!-- hamburger -->
+                <!-- nav item -->
+                <div class="collapse navbar-collapse js-clone-nav justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#home">About </a>
+                        </li>
+                           
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#scholastics">Scholastics</a>
+                        </li>
+                          
+                            
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#publication">Publications</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#project">Projects</a>
+                        </li>
+                           
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="artifacts.html">Indie</a>
+                        </li>
+                        
+                         
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#skills">Skills</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="writings.html">Writing</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="conferences.html">Conferences</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="code.html">Code</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="gallery.html">Gallery</a>
+                        </li>
+                        
+                         
+                        <li class="nav-item">
+                            <a class="nav-link" href="resume.html">Glance</a>
+                        </li>
+                                                                     
+                                       
+                    </ul>
+                </div>
+                <!-- <a href="#contact" class="btn d-none d-lg-block">Get In touch</a> -->
+               <!-- nav item -->
+            </nav>
+            <!-- navbar -->
+            <!-- tab and mobile view -->
+            <div class="collapse navbar-collapse d2c_mobile_view" id="navbarSupportedContent">
+                <div class="show_width container">
+                    <div class="text-right">
+                        <button class="navbar-toggler d2c_cross_btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fa fa-times"></i></span>
+                        </button>
+                    </div>
+                    
+                    <div class="navbar px-0 d2c_mobile_view_body"></div>
+                </div>
+            </div>
+            <!-- tab and mobile view -->
+        </div>
+    </header>
+    <!-- header end -->
+    
+    <main>
+        <div class="d2c_hero_bg listing-hero-bg">
+            
+            
+
+
+
+       <!-- hero start (same format as the other pages, sized to its content) -->
+            <section class="d2c_hero_wrapper" id="home" style="height:auto; padding: 56px 0 0;">
+                <div class="container">
+                    <h1>My <span>Gallery</span></h1>
+                    <p style="margin-bottom:0;">Moments from my research, conferences and projects.</p>
+                </div>
+            </section>
+            <!-- hero end -->
+
+            <section class="d2c_service_wrapper" id="gallery" style="padding-top: 24px;">
+                <style>
+                  /* small, page-local styling (site stylesheets untouched) */
+                  .g-ar-card { max-width: 760px; margin: 12pt 0; text-align: left; }
+                  .g-ar-card h4 { margin: 0 0 8px; text-transform: none; text-align: left; }
+                  .g-ar-card p { margin: 0 0 14px; line-height: 1.6; }
+                  .g-ar-note { font-size: 14px; opacity: .75; margin: 12px 0 0 !important; }
+                  .g-ar-btn { cursor: pointer; display: inline-block; padding: 9px 22px; border-radius: 999px; font-size: 16px; font-weight: 600; color: #fff !important;
+                              background: rgba(143,195,255,.2); border: 1px solid #8fc3ff; text-decoration: none !important; transition: background .2s, transform .2s; }
+                  .g-ar-btn:hover { background: rgba(143,195,255,.32); transform: translateY(-1px); }
+                  @media (min-width: 768px) { .listing-hero-bg { min-height: 92vh; } }
+
+                  /* photo album (page flip) */
+                  .g-album-wrap { max-width: 860px; margin: 28px auto 12px; }
+                  .g-album-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+                  .g-album-head h3 { margin: 0; text-align: left; color: #fff; }
+                  .g-head-btns { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+                  .g-ig-link { display: inline-block; align-self: flex-start; margin-top: 8px; padding: 5px 14px; white-space: nowrap; font-size: 13px; font-weight: 600; color: #fff !important; text-decoration: none;
+                               border: 1px solid #8fc3ff; border-radius: 999px; background: rgba(143,195,255,.16); }
+                  .g-ig-link:hover, .g-ig-link:focus-visible { background: rgba(143,195,255,.32); }
+                  .g-foot { min-height: 92px; display: flex; flex-direction: column; }
+                  .g-photo .g-ig-link { color: #0b3d91 !important; border-color: #0b3d91; background: #eef4ff; }
+                  .g-photo .g-ig-link:hover, .g-photo .g-ig-link:focus-visible { background: #dbe8ff; }
+                  .g-small { padding: 6px 16px !important; font-size: 14px !important; font-weight: 500 !important; }
+                  #albumBox { max-width: 760px; margin: 0 auto; }
+                  #album { margin: 0 auto; }
+                  .g-page { background: #fff; color: #111; overflow: hidden; border: 1px solid #d9dde4; box-sizing: border-box; }
+                  .g-photo { margin: 0; height: 100%; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; }
+                  .g-photo img { flex: 1; min-height: 0; width: 100%; object-fit: contain; background: #f1f3f6; border-radius: 6px; }
+                  .g-photo figcaption, .g-grid figcaption { padding-top: 10px; font-size: 14px; line-height: 1.4; text-align: left; color: #111; }
+                  .g-grid figcaption { color: #111; padding: 10px 4px 0; }
+                  .g-photo figcaption small, .g-grid figcaption small { display: block; opacity: .7; font-size: 12px; margin-top: 2px; }
+                  .g-album-ctrl { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+                  #albumPos { font-size: 14px; color: #fff; min-width: 70px; text-align: center; }
+                  .g-grid { column-width: 240px; column-gap: 14px; }
+                  .g-grid[hidden] { display: none; }
+                  .g-grid figure { margin: 0 0 14px; break-inside: avoid; background: #fff; border-radius: 10px; padding: 8px 8px 12px; display: flex; flex-direction: column; }
+                  .g-grid img { display: block; width: 100%; height: auto; border-radius: 6px; }   /* whole picture, never cropped */
+                  .g-grid .g-ig-link { color: #0b3d91 !important; border-color: #0b3d91; background: #eef4ff; margin-left: 4px; }
+                  .g-grid .g-ig-link:hover, .g-grid .g-ig-link:focus-visible { background: #dbe8ff; }
+
+                  /* full-screen AR layer (the AR libraries are only loaded when it is started) */
+                  #arOverlay { position: fixed; inset: 0; z-index: 20000; background: #000; color: #fff; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+                  #arOverlay[hidden] { display: none; }
+                  #arStage { position: absolute; inset: 0; overflow: hidden; }
+                  #arStart, #arMsg { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; padding: 0 24px; z-index: 5; }
+                  #arStart p, #arMsg p { margin: 0 0 18px; font-size: 18px; line-height: 1.5; }
+                  #arMsg[hidden], #arStart[hidden] { display: none; }
+                  .ar-bottom { position: absolute; z-index: 30000; left: 0; right: 0; bottom: 22px; display: flex; justify-content: center; gap: 10px; padding: 0 12px; }
+                  .ar-btn { color: #fff; text-decoration: none; background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; }
+                  body.ar-open { overflow: hidden; }
+                </style>
+
+                <div class="container">
+                    
+                    <div class="g-album-wrap">
+                        <div class="g-album-head">
+                            <h3>Photo album</h3>
+                            <span class="g-head-btns">
+                                <a class="g-ar-btn g-small" href="https://www.instagram.com/gaurish.1999?igsh=a2N6dzl2dTRiaDVo" target="_blank" rel="noopener noreferrer">Follow on Instagram<span class="visually-hidden"> (opens in a new tab)</span></a>
+                                <button type="button" class="g-ar-btn g-small" id="gridToggle" aria-pressed="false">Show all as grid</button>
+                            </span>
+                        </div>
+                        <div id="albumBox">
+                            <div id="album">
+                                
+                                <div class="g-page">
+                                    <figure class="g-photo">
+                                        <img src="static/uploads/gallery/1795754764824_1761654989416medal_solo_50.jpg" alt="Convocation IIT Jodhpur" decoding="async">
+                                        <div class="g-foot">
+                                        <figcaption>Convocation IIT Jodhpur<small>June 2026</small></figcaption>
+                                        <a class="g-ig-link" href="https://www.instagram.com/reel/DLZcTDZSL-7/" target="_blank" rel="noopener noreferrer">&#9654;&#xFE0E; Watch the reel on Instagram<span class="visually-hidden"> (opens in a new tab)</span></a>
+                                        </div>
+                                    </figure>
+                                </div>
+                                
+                                <div class="g-page g-blank"></div>
+                            </div>
+                            <div class="g-album-ctrl">
+                                <button type="button" class="g-ar-btn g-small" id="albumPrev">&lsaquo; Previous</button>
+                                <span id="albumPos" aria-live="polite"></span>
+                                <button type="button" class="g-ar-btn g-small" id="albumNext">Next &rsaquo;</button>
+                            </div>
+                        </div>
+                        <div id="photoGrid" class="g-grid" hidden>
+                            
+                            <figure>
+                                <a href="static/uploads/gallery/1795754764824_1761654989416medal_solo_50.jpg" target="_blank" rel="noopener"><img src="static/uploads/gallery/1795754764824_1761654989416medal_solo_50.jpg" alt="Convocation IIT Jodhpur" loading="lazy"></a>
+                                <figcaption>Convocation IIT Jodhpur<small>June 2026</small></figcaption>
+                                <a class="g-ig-link" href="https://www.instagram.com/reel/DLZcTDZSL-7/" target="_blank" rel="noopener noreferrer">&#9654;&#xFE0E; Watch the reel on Instagram<span class="visually-hidden"> (opens in a new tab)</span></a>
+                            </figure>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+
+            
+
+
+            
+
+
+            
+
+
+
+            
+
+
+
+            
+            
+
+            <!-- hero end -->
+        </div>
+
+       
+    
+        <div class="d2c_shade_bg_wrapper">
+
+        </div>
+
+        <!-- banner -->
+        <img src = "static/uploads/1767788866040banner.png" width="100%">
+
+        <!-- footer section start -->
+        <footer class="d2c_footer_wrapper" id="myfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <img src="static/uploads/1767788866037myownlogo.png" class="img-fluid w-100 mb-4" style="max-width: fit-content; max-height: 80px;" alt="Footer Logo">
+                        <p>Connect with me through  <a href="https://www.linkedin.com/in/gaurish-garg-arvr"     target="_blank"     rel="noopener noreferrer"     style="color: white; text-decoration: none;">    LinkedIn! </a><br> Game Design | AR-VR | HCI</p>
+                        
+                    </div> 
+                    <div class="col-lg-3" style=" margin: 0px auto;">
+                       <ul class="d2c_social_link list-group list-group-horizontal">
+                          
+                            <li>
+                                <a href="https://www.linkedin.com/in/gaurish-garg-arvr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/gaurishgarg" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><i class="fab fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/gaurish.1999?igsh=a2N6dzl2dTRiaDVo" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://topmate.io/gaurish_garg" target="_blank" rel="noopener noreferrer" aria-label="Topmate (opens in a new tab)"><img src="static/assets/images/topmate-dark.png" alt="Topmate" style="width:24px; height:24px;">
+</a>
+                            </li>
+                            <li>
+                                <a href="mailto:gaurish_garg@outlook.com" aria-label="Email Gaurish"><i class="fas fa-envelope"></i></a>
+                            </li>
+                        </ul>
+                    </div>              
+                    
+                    
+                </div>
+                <div class="d2c_copy_wrapper">
+                    <h4 class="text-center">© 2025-2026 Gaurish Garg. All Rights Reserved</h4>
+                </div>
+            </div>
+        </footer>
+        <!-- footer section end -->
+
+        <!--   Scroll Button Start   -->
+        <div id="scrollBtn">
+            <a href="#" aria-label="Back to top">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
+        <!--   Scroll Button  End   -->
+    </main>
+    
+
+    
+    <!-- js cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap js -->
+
+    
+    <script src="static/lib/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <!-- fancybox Image -->
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- Slider JS Link -->
+     
+    <script src="static/lib/slick-1.8.1/slick/slick.min.js"></script>
+    <!-- main js -->
+         <script src="static/assets/js/main.js"></script>
+         <script src="static/assets/js/smooth-scroll.js"></script>
+         
+
+    <!-- AR layer: only when the card's QR code is scanned (/ar.html -> gallery.html?ar=1). Asks for the camera at once:
+         allowed -> AR with buttons to the portfolio / gallery; refused, unavailable or no answer in time -> straight to the portfolio. -->
+    <div id="arOverlay" hidden role="dialog" aria-modal="true" aria-label="Augmented reality view">
+        <div id="arStage"></div>
+        <div id="arMsg" hidden><p id="arMsgText"></p></div>
+        <div class="ar-bottom">
+            <a class="ar-btn" href="index.html">Open my portfolio</a>
+            <a class="ar-btn" href="gallery.html">Photo gallery</a>
+        </div>
+    </div>
+    
+    
+    
+    <script>
+      (function () {
+        if (!/[?&]ar=1\b/.test(location.search)) return;                       /* AR only when scanned */
+        var PORTFOLIO = "index.html";
+        var WAIT_MS = 20000;                                                     /* no answer to the camera question after this long -> portfolio */
+        var CFG = {"anim": "none", "clip": "", "custom": "", "demo": false, "index": 9, "model": "static/uploads/ar/1795758718711_GiftBox_gltf.gltf", "position": "0 0 0", "rotation": "0 0 0", "scale": "0.2 0.2 0.2", "speed": 1.0, "target": "static/uploads/ar/1795758718708_targets.mind"};
+        /* shown until you save your own tracking file / model under /edit -> AR Card Section */
+        var DEMO = {
+          target: "https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind",
+          model:  "https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/softmind/scene.gltf",
+          index: 0, position: "0 0 0.1", rotation: "0 0 0", scale: "0.005 0.005 0.005", anim: "float", speed: 1, clip: "", custom: ""
+        };
+        var C = CFG.demo ? DEMO : CFG;
+        if (!C.target) C.target = DEMO.target;
+        var overlay = document.getElementById('arOverlay'), stage = document.getElementById('arStage'),
+            msg = document.getElementById('arMsg'), msgText = document.getElementById('arMsgText'), probe = null, answered = false;
+
+        function say(text) { msgText.textContent = text; msg.hidden = false; }
+        function toPortfolio() { location.replace(PORTFOLIO); }
+        function load(src) {
+          return new Promise(function (ok, fail) {
+            var s = document.createElement('script'); s.src = src; s.onload = ok;
+            s.onerror = function () { fail(new Error('Could not load ' + src)); }; document.head.appendChild(s);
+          });
+        }
+        function nums(t) { return String(t || '').split(/\s+/).map(Number); }
+        function animation(c) {                                                  /* [attribute, value] for the model, from the saved settings */
+          var sp = c.speed > 0 ? c.speed : 1, p = nums(c.position), r = nums(c.rotation), s = nums(c.scale);
+          switch (c.anim) {
+            case 'float': return ['animation', 'property: position; from: ' + p.join(' ') + '; to: ' + p[0] + ' ' + (p[1] + 0.1) + ' ' + p[2] +
+                                 '; dur: ' + Math.round(1000 / sp) + '; easing: easeInOutQuad; loop: true; dir: alternate'];
+            case 'spin':  return ['animation', 'property: rotation; from: ' + r.join(' ') + '; to: ' + r[0] + ' ' + (r[1] + 360) + ' ' + r[2] +
+                                 '; dur: ' + Math.round(6000 / sp) + '; easing: linear; loop: true'];
+            case 'pulse': return ['animation', 'property: scale; from: ' + s.join(' ') + '; to: ' + s.map(function (v) { return +(v * 1.15).toFixed(5); }).join(' ') +
+                                 '; dur: ' + Math.round(800 / sp) + '; easing: easeInOutQuad; loop: true; dir: alternate'];
+            case 'clip':  return ['animation-mixer', 'clip: ' + (c.clip || '*') + '; loop: repeat; timeScale: ' + sp];
+            case 'custom': return c.custom ? ['animation', c.custom] : null;
+          }
+          return null;
+        }
+        function el(tag, attrs) { var e = document.createElement(tag); Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); }); return e; }
+        function buildScene(c) {                                                 /* the same scene as a hand-written MindAR page, put together from the saved settings */
+          var scene = el('a-scene', {
+            embedded: '', 'mindar-image': 'imageTargetSrc: ' + c.target + ';', 'vr-mode-ui': 'enabled: false',
+            'device-orientation-permission-ui': 'enabled: false', renderer: 'colorManagement: true;'
+          });
+          if (c.model) {
+            var assets = el('a-assets'); assets.appendChild(el('a-asset-item', { id: 'myModel', src: c.model })); scene.appendChild(assets);
+          }
+          scene.appendChild(el('a-camera', { position: '0 0 0', 'look-controls': 'enabled: false' }));
+          var target = el('a-entity', { 'mindar-image-target': 'targetIndex: ' + (c.index || 0) });
+          if (c.model) {
+            var m = el('a-gltf-model', { src: '#myModel', position: c.position || '0 0 0', rotation: c.rotation || '0 0 0', scale: c.scale || '0.2 0.2 0.2' });
+            var a = animation(c); if (a) m.setAttribute(a[0], a[1]);
+            target.appendChild(m);
+          }
+          scene.appendChild(target);
+          return scene;
+        }
+        function releaseProbe() { if (probe) { probe.getTracks().forEach(function (t) { t.stop(); }); probe = null; } }
+        function startAR() {
+          say('Loading AR ... point your camera at my visiting card.');
+          load('https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js')
+            .then(function () { return load('https://aframe.io/releases/1.5.0/aframe.min.js'); })
+            .then(function () { return C.anim === 'clip' ? load('https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js') : null; })
+            .then(function () { return load('https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js'); })
+            .then(function () {
+              var sc = buildScene(C); stage.appendChild(sc);
+              sc.addEventListener('arReady', function () { msg.hidden = true; releaseProbe(); });
+              setTimeout(function () { msg.hidden = true; releaseProbe(); }, 9000);
+            })
+            .catch(function () { toPortfolio(); });                              /* AR files could not be loaded: do not leave the visitor stuck */
+        }
+
+        overlay.hidden = false; document.body.classList.add('ar-open');
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toPortfolio(); return; }
+        say('Please allow camera access to see my visiting card come alive. Otherwise I will open my portfolio for you.');
+        var timer = setTimeout(function () { if (!answered) toPortfolio(); }, WAIT_MS);
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false }).then(function (stream) {
+          answered = true; clearTimeout(timer); probe = stream; startAR();       /* allowed: the probe stream is kept until AR has its own camera */
+        }, function () {
+          answered = true; clearTimeout(timer); toPortfolio();                   /* refused, no camera, camera busy ... */
+        });
+      })();
+    </script>
+
+    <!-- intro animation (plays once, on a first visit without the card): card -> box -> lid opens -> domains rise out. Replace later with the Unity animation. -->
+    <div id="intro" aria-hidden="true">
+        <div class="in-stage">
+            <div class="in-card"><img src="static/uploads/1795752110477thelogo.png" alt=""><b>Gaurish Garg</b><small>PhD &middot; IIT Bombay</small></div>
+            <div class="in-box">
+                <div class="in-inside"></div>
+                <div class="in-body"><span>INSIDE<br>GAURISH</span></div>
+                <div class="in-lid"></div>
+            </div>
+            <span class="in-chip c1" style="--dx:-2.2; --dy:1.25;">AR / VR</span>
+            <span class="in-chip c2" style="--dx:-1.1; --dy:1.65;">HCI</span>
+            <span class="in-chip c3" style="--dx:0; --dy:1.3;">EdTech</span>
+            <span class="in-chip c4" style="--dx:1.1; --dy:1.65;">Tangible</span>
+            <span class="in-chip c5" style="--dx:2.2; --dy:1.25;">Games</span>
+        </div>
+        <p class="in-welcome">Welcome to my gallery</p>
+        <button type="button" class="in-skip" id="introSkip">Skip</button>
+    </div>
+    <style>
+      #intro { --w: min(250px, 62vw); position: fixed; inset: 0; z-index: 21000; display: none; flex-direction: column; align-items: center; justify-content: center;
+               background: radial-gradient(circle at 50% 38%, #12295a 0%, #060b17 72%); color: #fff; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+               opacity: 1; transition: opacity .6s ease; }
+      html.intro-on #intro { display: flex; }
+      html.intro-on body { overflow: hidden; }
+      #intro.out { opacity: 0; pointer-events: none; }
+      .in-stage { position: relative; width: var(--w); height: calc(var(--w) * 1.75); }
+      .in-card, .in-box { position: absolute; left: 0; width: var(--w); bottom: calc(var(--w) * 0.5); }
+      /* the card */
+      .in-card { height: calc(var(--w) * 0.55); transform: translateY(calc(var(--w) * -0.0)); border-radius: 14px; background: linear-gradient(135deg, #f4f7ff, #cfdcf5); color: #0b1426;
+                 display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; box-shadow: 0 14px 40px rgba(0,0,0,.5); opacity: 0; }
+      .in-card img { height: calc(var(--w) * 0.2); filter: invert(1) brightness(.2); margin-bottom: 4px; }
+      .in-card b { font-size: calc(var(--w) * 0.075); } .in-card small { font-size: calc(var(--w) * 0.05); opacity: .7; }
+      /* the box: lid (top), opening, front */
+      .in-box { height: calc(var(--w) * 0.55); perspective: 800px; opacity: 0; }
+      .in-body { position: absolute; left: 0; right: 0; bottom: 0; height: 75%; border-radius: 6px 6px 12px 12px; background: linear-gradient(180deg, #2a4a86, #17315f);
+                 border: 2px solid #8fc3ff; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 800; letter-spacing: .14em;
+                 font-size: calc(var(--w) * 0.085); line-height: 1.25; box-shadow: 0 14px 36px rgba(0,0,0,.55); z-index: 2; }
+      .in-inside { position: absolute; left: 4%; right: 4%; top: 20%; height: 22%; background: radial-gradient(ellipse at 50% 100%, #ffe9a8 0%, #7fb4ff 45%, #0b1426 100%); opacity: 0; z-index: 1; border-radius: 6px; }
+      .in-lid { position: absolute; left: -2%; right: -2%; top: 0; height: 26%; border-radius: 8px; background: linear-gradient(180deg, #3b64ad, #2a4a86); border: 2px solid #8fc3ff;
+                transform-origin: 50% 100%; z-index: 3; }
+      /* domains that come out of the box */
+      .in-chip { position: absolute; left: 50%; bottom: calc(var(--w) * 0.95); z-index: 4; padding: 5px 11px; border-radius: 999px; font-size: calc(var(--w) * 0.058); font-weight: 600; white-space: nowrap;
+                 background: rgba(143,195,255,.16); border: 1px solid #8fc3ff; color: #cfe5ff; opacity: 0; transform: translate(-50%, 0) scale(.3); }
+      .in-chip.c2 { color: #ffd37a; border-color: #ffd37a; background: rgba(255,211,122,.14); }
+      .in-chip.c3 { color: #7fe3d0; border-color: #7fe3d0; background: rgba(127,227,208,.14); }
+      .in-chip.c4 { color: #d6b4ff; border-color: #d6b4ff; background: rgba(214,180,255,.14); }
+      .in-chip.c5 { color: #ff9fb5; border-color: #ff9fb5; background: rgba(255,159,181,.14); }
+      .in-welcome { margin: 18px 0 0; font-size: 20px; letter-spacing: .04em; opacity: 0; }
+      .in-skip { position: absolute; right: 18px; bottom: 22px; cursor: pointer; padding: 8px 18px; border-radius: 999px; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.35); font-size: 14px; }
+      /* timeline (starts when the page has loaded: #intro.go) */
+      #intro.go .in-card   { animation: inCardIn .8s .2s ease-out both, inCardOut .5s 1.6s ease-in forwards; }
+      #intro.go .in-box    { animation: inBoxIn .5s 2.0s ease-out both; }
+      #intro.go .in-lid    { animation: inLid .8s 2.8s cubic-bezier(.3,1.4,.5,1) forwards; }
+      #intro.go .in-inside { animation: inFade .6s 3.0s ease-out forwards; }
+      #intro.go .in-chip   { animation: inRise 1.1s ease-out forwards; }
+      #intro.go .c1 { animation-delay: 3.2s; } #intro.go .c2 { animation-delay: 3.35s; } #intro.go .c3 { animation-delay: 3.5s; }
+      #intro.go .c4 { animation-delay: 3.65s; } #intro.go .c5 { animation-delay: 3.8s; }
+      #intro.go .in-welcome { animation: inFade .7s 5.0s ease-out forwards; }
+      @keyframes inCardIn  { from { opacity: 0; transform: translateY(24px) scale(.85); } to { opacity: 1; transform: none; } }
+      @keyframes inCardOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: perspective(700px) rotateY(-90deg); } }
+      @keyframes inBoxIn   { from { opacity: 1; transform: perspective(700px) rotateY(90deg); } to { opacity: 1; transform: none; } }
+      @keyframes inLid     { from { transform: rotateX(0deg); } to { transform: rotateX(105deg); } }
+      @keyframes inFade    { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes inRise    { 0% { opacity: 0; transform: translate(-50%, calc(var(--w) * .25)) scale(.3); }
+                             70% { opacity: 1; }
+                             100% { opacity: 1; transform: translate(calc(-50% + var(--dx) * var(--w) * .21), calc(var(--dy) * var(--w) * -.32)) scale(1); } }
+    </style>
+    <script>
+      (function () {
+        var intro = document.getElementById('intro');
+        function seen() { try { localStorage.setItem('gg_intro_seen', '1'); } catch (e) {} }
+        function finish() {
+          if (!intro || intro.classList.contains('out')) return;
+          seen(); intro.classList.add('out');
+          setTimeout(function () { document.documentElement.classList.remove('intro-on'); }, 700);
+        }
+        if (document.documentElement.classList.contains('intro-on')) {
+          var begin = function () { setTimeout(function () { intro.classList.add('go'); setTimeout(finish, 6400); }, 250); };
+          if (document.readyState === 'complete') begin(); else window.addEventListener('load', begin);
+          document.getElementById('introSkip').addEventListener('click', finish);
+        }
+      })();
+    </script>
+
+    
+    <script src="static/pageflip/page-flip.browser.js"></script>
+    <script>
+      (function () {
+        var grid = document.getElementById('photoGrid'), box = document.getElementById('albumBox'), toggle = document.getElementById('gridToggle'), pf = null;
+        function showGrid(on) { grid.hidden = !on; box.hidden = on; toggle.setAttribute('aria-pressed', on ? 'true' : 'false'); toggle.textContent = on ? 'Show as album' : 'Show all as grid'; }
+        toggle.addEventListener('click', function () { showGrid(grid.hidden); });
+        try {
+          pf = new St.PageFlip(document.getElementById('album'), {
+            width: 380, height: 520, size: 'stretch', minWidth: 240, maxWidth: 520, minHeight: 330, maxHeight: 720,
+            showCover: false, usePortrait: true, clickEventForward: true, mobileScrollSupport: true, drawShadow: true, maxShadowOpacity: .5, flippingTime: 700
+          });
+          pf.loadFromHTML(document.querySelectorAll('#album .g-page'));
+          var pos = document.getElementById('albumPos');
+          function show() { var i = pf.getCurrentPageIndex(), n = pf.getPageCount(); pos.textContent = (pf.getOrientation() === 'landscape' ? (i + 1) + '\u2013' + Math.min(i + 2, n) : (i + 1)) + ' / ' + n; }
+          pf.on('flip', show); show();
+          document.getElementById('albumPrev').addEventListener('click', function () { pf.flipPrev(); });
+          document.getElementById('albumNext').addEventListener('click', function () { pf.flipNext(); });
+        } catch (e) { showGrid(true); toggle.hidden = true; }      /* the album could not start: show the plain grid instead */
+      })();
+    </script>
+    
+</body>
+</html>
