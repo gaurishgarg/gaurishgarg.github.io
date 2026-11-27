@@ -219,7 +219,6 @@
                   .ar-bottom { position: absolute; z-index: 30000; left: 0; right: 0; bottom: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 12px; }
                   .ar-btn { color: #fff; text-decoration: none; background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; line-height: 1.2; }
                   #arOverlay .a-enter-vr, #arOverlay .a-enter-vr-button, #arOverlay .a-orientation-modal { display: none !important; }    /* no VR / full-screen button */
-                  #arCam { position: absolute; z-index: 30000; left: 8px; right: 8px; top: 64px; text-align: center; font: 12px/1.3 sans-serif; color: #fff; text-shadow: 0 0 3px #000; pointer-events: none; }
                   body.ar-open { overflow: hidden; }
                 </style>
 
@@ -370,7 +369,6 @@
     <div id="arOverlay" hidden role="dialog" aria-modal="true" aria-label="Augmented reality view">
         <div id="arStage"></div>
         <div id="arMsg" hidden><p id="arMsgText"></p></div>
-        <div id="arCam"></div>
         <div class="ar-bottom">
             <button type="button" class="ar-btn" id="arFlip">Switch camera</button>
             <a class="ar-btn" href="index.html">Open my portfolio</a>
@@ -536,10 +534,7 @@
           });
         }
         backCamera().then(function (stream) {
-          probe = stream; cur = info(stream); startAR();
-          navigator.mediaDevices.enumerateDevices().then(function (l) {
-            document.getElementById('arCam').textContent = 'Camera: ' + (cur.label || '(no name)') + ' | facing: ' + (cur.face || '(not reported)') + ' | cameras found: ' + l.filter(function (d) { return d.kind === 'videoinput'; }).length;
-          });                                             /* allowed: the stream is kept and handed to the AR view */
+          probe = stream; cur = info(stream); startAR();                          /* allowed: the stream is kept and handed to the AR view */
         }, function (err) {
           if (refused(err)) { toPortfolio(); return; }                           /* the visitor said no (or the browser blocks the camera for this site) */
           say('The camera could not be started' + (err && err.name ? ' (' + err.name + ')' : '') + '. Use the buttons below to see my portfolio.');
