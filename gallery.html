@@ -378,7 +378,6 @@
       (function () {
         if (!/[?&]ar=1\b/.test(location.search)) return;                       /* AR only when scanned */
         var PORTFOLIO = "index.html";
-        var WAIT_MS = 20000;                                                     /* no answer to the camera question after this long -> portfolio */
         var CFG = {"anim": "none", "clip": "", "custom": "", "demo": false, "index": 9, "model": "static/uploads/ar/1795758718711_GiftBox_gltf.gltf", "position": "0 0 0", "rotation": "0 0 0", "scale": "0.2 0.2 0.2", "speed": 1.0, "target": "static/uploads/ar/1795758718708_targets.mind"};
         /* shown until you save your own tracking file / model under /edit -> AR Card Section */
         var DEMO = {
@@ -389,7 +388,7 @@
         var C = CFG.demo ? DEMO : CFG;
         if (!C.target) C.target = DEMO.target;
         var overlay = document.getElementById('arOverlay'), stage = document.getElementById('arStage'),
-            msg = document.getElementById('arMsg'), msgText = document.getElementById('arMsgText'), probe = null, answered = false;
+            msg = document.getElementById('arMsg'), msgText = document.getElementById('arMsgText'), probe = null;
 
         function say(text) { msgText.textContent = text; msg.hidden = false; }
         function toPortfolio() { location.replace(PORTFOLIO); }
@@ -451,11 +450,10 @@
         overlay.hidden = false; document.body.classList.add('ar-open');
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toPortfolio(); return; }
         say('Please allow camera access to see my visiting card come alive. Otherwise I will open my portfolio for you.');
-        var timer = setTimeout(function () { if (!answered) toPortfolio(); }, WAIT_MS);
         navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false }).then(function (stream) {
-          answered = true; clearTimeout(timer); probe = stream; startAR();       /* allowed: the probe stream is kept until AR has its own camera */
+          probe = stream; startAR();       /* allowed: the probe stream is kept until AR has its own camera */
         }, function () {
-          answered = true; clearTimeout(timer); toPortfolio();                   /* refused, no camera, camera busy ... */
+          toPortfolio();                   /* refused, no camera, camera busy ... */
         });
       })();
     </script>
