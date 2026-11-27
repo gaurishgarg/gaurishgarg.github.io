@@ -480,16 +480,19 @@
         say('Please allow camera access to see my visiting card come alive. Otherwise I will open my portfolio for you.');
         function refused(err) { return err && (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError' || err.name === 'SecurityError'); }
         function facing(stream) { var t = stream.getVideoTracks()[0], s = t && t.getSettings ? t.getSettings() : {}; return s.facingMode || ''; }
-        function backCamera() {                                                  /* the rear camera: asked for strictly first, then by name, then any camera */
-          var md = navigator.mediaDevices;
-          return md.getUserMedia({ video: { facingMode: { exact: 'environment' } }, audio: false }).catch(function (err) {
+        function deviceOf(stream) { var t = stream.getVideoTracks()[0], s = t && t.getSettings ? t.getSettings() : {}; return s.deviceId || ''; }
+        function backCamera() {                                                  /* the rear camera: asked for strictly first, then picked by name, then any camera */
+          var md = navigator.mediaDevices, strict = false;
+          return md.getUserMedia({ video: { facingMode: { exact: 'environment' } }, audio: false }).then(function (s) { strict = true; return s; }, function (err) {
             if (refused(err)) throw err;
             return md.getUserMedia({ video: { facingMode: 'environment' }, audio: false });                     /* a phone that cannot be strict about it */
           }).then(function (stream) {
-            if (facing(stream) !== 'user') return stream;                        /* rear camera (or unknown): done */
-            return md.enumerateDevices().then(function (list) {                  /* got the selfie camera: look for the rear one by its name */
-              var back = list.filter(function (d) { return d.kind === 'videoinput' && /back|rear|environment/i.test(d.label); })[0];
-              if (!back) return stream;
+            if (strict) return stream;                                           /* the phone confirmed it is the rear camera */
+            /* Not confirmed (many phones do not report which camera they gave): look at the camera list and switch if this is not the rear one. */
+            return md.enumerateDevices().then(function (list) {
+              var cams = list.filter(function (d) { return d.kind === 'videoinput' && /back|rear|environment/i.test(d.label); });
+              var back = cams.filter(function (d) { return !/ultra|wide|tele|macro|depth/i.test(d.label); })[0] || cams[0];    /* the main rear lens, not the wide or zoom one */
+              if (!back || back.deviceId === deviceOf(stream) || facing(stream) === 'environment') return stream;
               stream.getTracks().forEach(function (t) { t.stop(); });
               return md.getUserMedia({ video: { deviceId: { exact: back.deviceId } }, audio: false }).catch(function () {
                 return md.getUserMedia({ video: true, audio: false });           /* that did not work either: any camera is better than none */
