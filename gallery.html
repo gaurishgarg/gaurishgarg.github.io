@@ -451,12 +451,15 @@
             .then(function () { return C.anim === 'clip' ? loadAny(LIBS.extras) : null; })
             .then(function () { return loadAny(LIBS.mindar); })
             .then(function () {
+              releaseProbe();                                                   /* phones let only one thing use the camera: let go of ours so the AR view can have it (permission stays granted) */
+              return new Promise(function (go) { setTimeout(go, 400); });       /* a moment for the camera to be freed */
+            })
+            .then(function () {
               stage.innerHTML = sceneHtml(C); var sc = stage.querySelector('a-scene');
-              sc.addEventListener('arReady', function () { releaseProbe(); msgText.textContent = 'Point your camera at my visiting card.'; msg.classList.add('hint'); msg.hidden = false; });
-              sc.addEventListener('arError', function () { say('The camera could not be started by the AR view. Use the buttons below to see my portfolio.'); });
+              sc.addEventListener('arReady', function () { msgText.textContent = 'Point your camera at my visiting card.'; msg.classList.add('hint'); msg.hidden = false; });
+              sc.addEventListener('arError', function (e) { var why = e && e.detail && e.detail.error; say('The camera could not be started by the AR view' + (why ? ' (' + why + ')' : '') + '. Close other apps or tabs that may be using the camera, then reload, or use the buttons below to see my portfolio.'); });
               var found = stage.querySelector('[mindar-image-target]');
               if (found) found.addEventListener('targetFound', function () { msg.hidden = true; });               /* the model shows only while the card is seen */
-              setTimeout(releaseProbe, 9000);
             })
             .catch(function (err) { say('The AR view could not be loaded' + (err && err.message ? ' (' + err.message.slice(0, 120) + ')' : '') + '. You can open my portfolio or the gallery with the buttons below.'); });
         }
