@@ -216,8 +216,8 @@
                   #arMsg[hidden], #arStart[hidden] { display: none; }
                   #arMsg.hint { top: 24px; bottom: auto; transform: none; }
                   #arMsg.hint p { display: inline-block; margin: 0; padding: 8px 16px; font-size: 16px; background: rgba(0,0,0,.6); border-radius: 999px; }
-                  .ar-bottom { position: absolute; z-index: 30000; left: 0; right: 0; bottom: 22px; display: flex; justify-content: center; gap: 10px; padding: 0 12px; }
-                  .ar-btn { color: #fff; text-decoration: none; background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; }
+                  .ar-bottom { position: absolute; z-index: 30000; left: 0; right: 0; bottom: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 12px; }
+                  .ar-btn { color: #fff; text-decoration: none; background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; line-height: 1.2; }
                   body.ar-open { overflow: hidden; }
                 </style>
 
@@ -369,6 +369,7 @@
         <div id="arStage"></div>
         <div id="arMsg" hidden><p id="arMsgText"></p></div>
         <div class="ar-bottom">
+            <button type="button" class="ar-btn" id="arFlip">Switch camera</button>
             <a class="ar-btn" href="index.html">Open my portfolio</a>
             <a class="ar-btn" href="gallery.html">Photo gallery</a>
         </div>
@@ -479,9 +480,28 @@
         }
         say('Please allow camera access to see my visiting card come alive. Otherwise I will open my portfolio for you.');
         function refused(err) { return err && (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError' || err.name === 'SecurityError'); }
+        var CAMKEY = 'arCamera', cur = { face: '', id: '' };                    /* the camera the visitor picked with "Switch camera", remembered on this phone */
+        function savedCam() { try { return JSON.parse(localStorage.getItem(CAMKEY) || 'null'); } catch (e) { return null; } }
+        function saveCam(v) { try { localStorage.setItem(CAMKEY, JSON.stringify(v)); } catch (e) {} }
+        document.getElementById('arFlip').addEventListener('click', function () {
+          var md = navigator.mediaDevices;
+          (md && md.enumerateDevices ? md.enumerateDevices() : Promise.resolve([])).then(function (list) {
+            var cams = list.filter(function (d) { return d.kind === 'videoinput' && d.deviceId; });
+            if (cams.length > 1) {
+              var k = -1; cams.forEach(function (d, n) { if (d.deviceId === cur.id) k = n; });
+              saveCam({ id: cams[(k + 1) % cams.length].deviceId });
+            } else saveCam({ face: cur.face === 'user' ? 'environment' : 'user' });
+          }).catch(function () { saveCam({ face: cur.face === 'user' ? 'environment' : 'user' }); }).then(function () { location.reload(); });
+        });
         var FRONT = /front|user|selfie/i, BACK = /back|rear|environment/i;
         function info(stream) { var t = stream.getVideoTracks()[0], s = t && t.getSettings ? t.getSettings() : {}; return { face: s.facingMode || '', id: s.deviceId || '', label: (t && t.label) || '' }; }
-        function backCamera() {                                                  /* the rear camera: asked for strictly, then every answer is checked, and corrected from the camera list if needed */
+        function backCamera() {                                                  /* the visitor's own pick first, otherwise the rear camera */
+          var md = navigator.mediaDevices, want = savedCam();
+          var pick = want && want.id ? md.getUserMedia({ video: { deviceId: { exact: want.id } }, audio: false })
+                   : want && want.face ? md.getUserMedia({ video: { facingMode: { exact: want.face } }, audio: false }) : Promise.reject(null);
+          return pick.catch(function (err) { if (refused(err)) throw err; return rearCamera(); });
+        }
+        function rearCamera() {                                                  /* the rear camera: asked for strictly, then every answer is checked, and corrected from the camera list if needed */
           var md = navigator.mediaDevices;
           return md.getUserMedia({ video: { facingMode: { exact: 'environment' } }, audio: false }).catch(function (err) {
             if (refused(err)) throw err;
@@ -505,7 +525,7 @@
           });
         }
         backCamera().then(function (stream) {
-          probe = stream; startAR();                                             /* allowed: the stream is kept and handed to the AR view */
+          probe = stream; cur = info(stream); startAR();                                             /* allowed: the stream is kept and handed to the AR view */
         }, function (err) {
           if (refused(err)) { toPortfolio(); return; }                           /* the visitor said no (or the browser blocks the camera for this site) */
           say('The camera could not be started' + (err && err.name ? ' (' + err.name + ')' : '') + '. Use the buttons below to see my portfolio.');
