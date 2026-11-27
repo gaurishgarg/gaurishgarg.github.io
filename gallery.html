@@ -216,6 +216,7 @@
                   #arMsg[hidden], #arStart[hidden] { display: none; }
                   .ar-bottom { position: absolute; z-index: 30000; left: 0; right: 0; bottom: 22px; display: flex; justify-content: center; gap: 10px; padding: 0 12px; }
                   .ar-btn { color: #fff; text-decoration: none; background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; }
+                  #arLog { position: absolute; z-index: 40000; left: 8px; right: 8px; top: 8px; max-height: 55vh; overflow: auto; margin: 0; padding: 8px; font: 11px/1.4 monospace; color: #9fffa8; background: rgba(0,0,0,.75); white-space: pre-wrap; word-break: break-all; }
                   body.ar-open { overflow: hidden; }
                 </style>
 
@@ -378,11 +379,11 @@
       (function () {
         if (!/[?&]ar=1\b/.test(location.search)) return;                       /* AR only when scanned */
         var PORTFOLIO = "index.html";
-        var CFG = {"anim": "none", "clip": "", "custom": "", "demo": false, "index": 9, "model": "static/uploads/ar/1795758718711_GiftBox_gltf.gltf", "position": "0 0 0", "rotation": "0 0 0", "scale": "0.2 0.2 0.2", "speed": 1.0, "target": "static/uploads/ar/1795758718708_targets.mind"};
+        var CFG = {"anim": "none", "clip": "", "custom": "", "demo": false, "index": 9, "model": "static/uploads/ar/1795759739336_mymodel.gltf", "position": "0 0 0", "rotation": "0 0 0", "scale": "0.2 0.2 0.2", "speed": 1.0, "target": "static/uploads/ar/1795759739330_targets.mind"};
         /* shown until you save your own tracking file / model under /edit -> AR Card Section */
         var DEMO = {
-          target: "https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind",
-          model:  "https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/softmind/scene.gltf",
+          target: "static/lib/ar/demo/card.mind",
+          model:  "static/lib/ar/demo/softmind/scene.gltf",
           index: 0, position: "0 0 0.1", rotation: "0 0 0", scale: "0.005 0.005 0.005", anim: "float", speed: 1, clip: "", custom: ""
         };
         var C = CFG.demo ? DEMO : CFG;
@@ -390,14 +391,30 @@
         var overlay = document.getElementById('arOverlay'), stage = document.getElementById('arStage'),
             msg = document.getElementById('arMsg'), msgText = document.getElementById('arMsgText'), probe = null;
 
+        /* add &debug=1 to the address (gallery.html?ar=1&debug=1) to see what happens, step by step, without being sent away */
+        var DEBUG = /[?&]debug=1\b/.test(location.search), logEl = null;
+        function log(t) {
+          if (!DEBUG) return;
+          if (!logEl) { logEl = document.createElement('pre'); logEl.id = 'arLog'; overlay.appendChild(logEl); }
+          logEl.textContent += t + '\n';
+        }
         function say(text) { msgText.textContent = text; msg.hidden = false; }
-        function toPortfolio() { location.replace(PORTFOLIO); }
+        function toPortfolio(why) { log('would go to the portfolio now: ' + why); if (!DEBUG) location.replace(PORTFOLIO); }
         function load(src) {
           return new Promise(function (ok, fail) {
-            var s = document.createElement('script'); s.src = src; s.onload = ok;
-            s.onerror = function () { fail(new Error('Could not load ' + src)); }; document.head.appendChild(s);
+            var s = document.createElement('script'); s.src = src; s.onload = function () { log('loaded ' + src.split('/').pop()); ok(); };
+            s.onerror = function () { log('FAILED to load ' + src); fail(new Error('Could not load ' + src)); }; document.head.appendChild(s);
           });
         }
+        function loadAny(urls) {                                                 /* try the addresses one after another until one works */
+          return urls.reduce(function (p, u) { return p.catch(function () { return load(u); }); }, Promise.reject());
+        }
+        /* the libraries are kept on this site (static/lib/ar); the CDN addresses are only a backup */
+        var LIBS = {
+          aframe: ["static/lib/ar/aframe-1.5.0.min.js", 'https://aframe.io/releases/1.5.0/aframe.min.js', 'https://cdn.jsdelivr.net/npm/aframe@1.5.0/dist/aframe-master.min.js'],
+          extras: ["static/lib/ar/aframe-extras-7.5.4.min.js", 'https://cdn.jsdelivr.net/npm/aframe-extras@7.5.4/dist/aframe-extras.min.js'],
+          mindar: ["static/lib/ar/mindar-image-aframe-1.2.5.prod.js", 'https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js', 'https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js']
+        };
         function nums(t) { return String(t || '').split(/\s+/).map(Number); }
         function animation(c) {                                                  /* [attribute, value] for the model, from the saved settings */
           var sp = c.speed > 0 ? c.speed : 1, p = nums(c.position), r = nums(c.rotation), s = nums(c.scale);
@@ -413,48 +430,70 @@
           }
           return null;
         }
-        function el(tag, attrs) { var e = document.createElement(tag); Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); }); return e; }
-        function buildScene(c) {                                                 /* the same scene as a hand-written MindAR page, put together from the saved settings */
-          var scene = el('a-scene', {
-            embedded: '', 'mindar-image': 'imageTargetSrc: ' + c.target + ';', 'vr-mode-ui': 'enabled: false',
-            'device-orientation-permission-ui': 'enabled: false', renderer: 'colorManagement: true;'
-          });
+        function esc(v) { return String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+        function tag(name, attrs, inner) {
+          return '<' + name + Object.keys(attrs || {}).map(function (k) { return ' ' + k + '="' + esc(attrs[k]) + '"'; }).join('') + '>' + (inner || '') + '</' + name + '>';
+        }
+        function sceneHtml(c) {                                                  /* the same scene as a hand-written MindAR page, put together from the saved settings */
+          var model = '';
           if (c.model) {
-            var assets = el('a-assets'); assets.appendChild(el('a-asset-item', { id: 'myModel', src: c.model })); scene.appendChild(assets);
+            var attrs = { src: '#myModel', position: c.position || '0 0 0', rotation: c.rotation || '0 0 0', scale: c.scale || '0.2 0.2 0.2' };
+            var a = animation(c); if (a) attrs[a[0]] = a[1];
+            model = tag('a-gltf-model', attrs);
           }
-          scene.appendChild(el('a-camera', { position: '0 0 0', 'look-controls': 'enabled: false' }));
-          var target = el('a-entity', { 'mindar-image-target': 'targetIndex: ' + (c.index || 0) });
-          if (c.model) {
-            var m = el('a-gltf-model', { src: '#myModel', position: c.position || '0 0 0', rotation: c.rotation || '0 0 0', scale: c.scale || '0.2 0.2 0.2' });
-            var a = animation(c); if (a) m.setAttribute(a[0], a[1]);
-            target.appendChild(m);
-          }
-          scene.appendChild(target);
-          return scene;
+          return tag('a-scene', {
+              embedded: '', 'mindar-image': 'imageTargetSrc: ' + c.target + ';', 'vr-mode-ui': 'enabled: false',
+              'device-orientation-permission-ui': 'enabled: false', renderer: 'colorManagement: true;'
+            },
+            (c.model ? tag('a-assets', {}, tag('a-asset-item', { id: 'myModel', src: c.model })) : '') +
+            tag('a-camera', { position: '0 0 0', 'look-controls': 'enabled: false' }) +
+            tag('a-entity', { 'mindar-image-target': 'targetIndex: ' + (c.index || 0) }, model));
         }
         function releaseProbe() { if (probe) { probe.getTracks().forEach(function (t) { t.stop(); }); probe = null; } }
         function startAR() {
           say('Loading AR ... point your camera at my visiting card.');
-          load('https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js')
-            .then(function () { return load('https://aframe.io/releases/1.5.0/aframe.min.js'); })
-            .then(function () { return C.anim === 'clip' ? load('https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js') : null; })
-            .then(function () { return load('https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js'); })
+          /* A-Frame first, then MindAR's A-Frame build (it already contains the image-tracking engine). Each file has backup addresses. */
+          loadAny(LIBS.aframe)
+            .then(function () { return C.anim === 'clip' ? loadAny(LIBS.extras) : null; })
+            .then(function () { return loadAny(LIBS.mindar); })
             .then(function () {
-              var sc = buildScene(C); stage.appendChild(sc);
-              sc.addEventListener('arReady', function () { msg.hidden = true; releaseProbe(); });
+              stage.innerHTML = sceneHtml(C); var sc = stage.querySelector('a-scene'); log('scene added');
+              sc.addEventListener('arReady', function () { log('arReady'); msg.hidden = true; releaseProbe(); });
+              sc.addEventListener('arError', function () { log('arError'); say('The camera could not be started by the AR view. Use the buttons below to see my portfolio.'); });
               setTimeout(function () { msg.hidden = true; releaseProbe(); }, 9000);
             })
-            .catch(function () { toPortfolio(); });                              /* AR files could not be loaded: do not leave the visitor stuck */
+            .catch(function (err) { log('AR setup failed: ' + (err && (err.stack || err.message))); say('The AR view could not be loaded' + (err && err.message ? ' (' + err.message.slice(0, 120) + ')' : '') + '. You can open my portfolio or the gallery with the buttons below.'); });
         }
 
         overlay.hidden = false; document.body.classList.add('ar-open');
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toPortfolio(); return; }
+        if (DEBUG) {
+          log('address: ' + location.href); log('secure page: ' + window.isSecureContext + ' | camera API: ' + !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia));
+          log('browser: ' + navigator.userAgent);
+          window.addEventListener('error', function (e) { log('page error: ' + e.message); });
+          if (navigator.permissions && navigator.permissions.query) {
+            navigator.permissions.query({ name: 'camera' }).then(function (p) { log('camera permission for this site: ' + p.state); }, function () { log('camera permission state: not readable here'); });
+          }
+        }
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          /* no camera access possible here: typically a plain http:// address (phones only allow the camera on https://) or an in-app browser */
+          say(window.isSecureContext === false
+            ? 'The camera only works on a secure (https) address, and this page was opened over plain http. Use the buttons below to see my portfolio.'
+            : 'This browser cannot open the camera. Open this page in Chrome or Safari, or use the buttons below to see my portfolio.');
+          return;
+        }
         say('Please allow camera access to see my visiting card come alive. Otherwise I will open my portfolio for you.');
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false }).then(function (stream) {
-          probe = stream; startAR();       /* allowed: the probe stream is kept until AR has its own camera */
-        }, function () {
-          toPortfolio();                   /* refused, no camera, camera busy ... */
-        });
+        function refused(err) { return err && (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError' || err.name === 'SecurityError'); }
+        function ask(constraints, retry) {
+          navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+            log('camera allowed'); probe = stream; startAR();                    /* allowed: the probe stream is kept until AR has its own camera */
+          }, function (err) {
+            log('camera error: ' + (err && err.name) + ' - ' + (err && err.message));
+            if (refused(err)) { toPortfolio('camera refused or blocked (' + (err && err.name) + ')'); return; }                         /* the visitor said no (or the browser blocks the camera for this site) */
+            if (retry) { ask({ video: true, audio: false }, false); return; }    /* e.g. no rear camera: try any camera */
+            say('The camera could not be started' + (err && err.name ? ' (' + err.name + ')' : '') + '. Use the buttons below to see my portfolio.');
+          });
+        }
+        ask({ video: { facingMode: 'environment' }, audio: false }, true);
       })();
     </script>
 
