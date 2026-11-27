@@ -219,6 +219,7 @@
                   .ar-bottom { position: absolute; z-index: 30000; left: 0; right: 0; bottom: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 12px; }
                   .ar-btn { color: #fff; text-decoration: none; background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; line-height: 1.2; }
                   #arOverlay .a-enter-vr, #arOverlay .a-enter-vr-button, #arOverlay .a-orientation-modal { display: none !important; }    /* no VR / full-screen button */
+                  #arCam { position: absolute; z-index: 30000; left: 8px; right: 8px; top: 64px; text-align: center; font: 12px/1.3 sans-serif; color: #fff; text-shadow: 0 0 3px #000; pointer-events: none; }
                   body.ar-open { overflow: hidden; }
                 </style>
 
@@ -369,6 +370,7 @@
     <div id="arOverlay" hidden role="dialog" aria-modal="true" aria-label="Augmented reality view">
         <div id="arStage"></div>
         <div id="arMsg" hidden><p id="arMsgText"></p></div>
+        <div id="arCam"></div>
         <div class="ar-bottom">
             <button type="button" class="ar-btn" id="arFlip">Switch camera</button>
             <a class="ar-btn" href="index.html">Open my portfolio</a>
@@ -485,15 +487,23 @@
         function savedCam() { try { return JSON.parse(localStorage.getItem(CAMKEY) || 'null'); } catch (e) { return null; } }
         function saveCam(v) { try { localStorage.setItem(CAMKEY, JSON.stringify(v)); } catch (e) {} }
         document.getElementById('arFlip').addEventListener('click', function () {
-          var md = navigator.mediaDevices;
+          var md = navigator.mediaDevices, other = cur.face === 'user' || /front|user|selfie/i.test(cur.label) ? 'environment' : 'user';
           (md && md.enumerateDevices ? md.enumerateDevices() : Promise.resolve([])).then(function (list) {
-            var cams = list.filter(function (d) { return d.kind === 'videoinput' && d.deviceId; });
-            if (cams.length > 1) {
+            var cams = list.filter(function (d) { return d.kind === 'videoinput' && d.deviceId; }), want = other === 'environment' ? /back|rear|environment/i : /front|user|selfie/i;
+            var side = cams.filter(function (d) { return want.test(d.label) && !(other === 'environment' && /front|user|selfie/i.test(d.label)); });
+            var main = mainLens(side);
+            if (main) return saveCam({ id: main.deviceId });                    /* the other side's (main) camera, by its name */
+            if (cams.length > 1) {                                              /* names not available: just the next camera in the list */
               var k = -1; cams.forEach(function (d, n) { if (d.deviceId === cur.id) k = n; });
-              saveCam({ id: cams[(k + 1) % cams.length].deviceId });
-            } else saveCam({ face: cur.face === 'user' ? 'environment' : 'user' });
-          }).catch(function () { saveCam({ face: cur.face === 'user' ? 'environment' : 'user' }); }).then(function () { location.reload(); });
+              return saveCam({ id: cams[(k + 1) % cams.length].deviceId });
+            }
+            saveCam({ face: other });
+          }).catch(function () { saveCam({ face: other }); }).then(function () { location.reload(); });
         });
+        function mainLens(cams) {                                                /* of several cameras on one side: not the wide / zoom ones, and the lowest-numbered (the main lens) */
+          var s = cams.slice().sort(function (a, b) { return String(a.label).localeCompare(String(b.label), undefined, { numeric: true }); });
+          return s.filter(function (d) { return !/ultra|wide|tele|macro|depth/i.test(d.label); })[0] || s[0];
+        }
         var FRONT = /front|user|selfie/i, BACK = /back|rear|environment/i;
         function info(stream) { var t = stream.getVideoTracks()[0], s = t && t.getSettings ? t.getSettings() : {}; return { face: s.facingMode || '', id: s.deviceId || '', label: (t && t.label) || '' }; }
         function backCamera() {                                                  /* the visitor's own pick first, otherwise the rear camera */
@@ -513,7 +523,7 @@
               var front = now.face === 'user' || FRONT.test(name), back = now.face === 'environment' || BACK.test(name);
               if (back && !front) return stream;                                 /* confirmed: the rear camera */
               var cams = list.filter(function (d) { return d.kind === 'videoinput' && BACK.test(d.label) && !FRONT.test(d.label); });
-              var pick = cams.filter(function (d) { return !/ultra|wide|tele|macro|depth/i.test(d.label); })[0] || cams[0];   /* the main rear lens, not the wide or zoom one */
+              var pick = mainLens(cams);                                         /* the main rear lens, not the wide or zoom one */
               if (!pick || pick.deviceId === now.id || (!front && !name)) return stream;     /* no rear camera to switch to, or no sign that this is the wrong one */
               stream.getTracks().forEach(function (t) { t.stop(); });
               return md.getUserMedia({ video: { deviceId: { exact: pick.deviceId } }, audio: false }).catch(function () {
@@ -526,7 +536,10 @@
           });
         }
         backCamera().then(function (stream) {
-          probe = stream; cur = info(stream); startAR();                                             /* allowed: the stream is kept and handed to the AR view */
+          probe = stream; cur = info(stream); startAR();
+          navigator.mediaDevices.enumerateDevices().then(function (l) {
+            document.getElementById('arCam').textContent = 'Camera: ' + (cur.label || '(no name)') + ' | facing: ' + (cur.face || '(not reported)') + ' | cameras found: ' + l.filter(function (d) { return d.kind === 'videoinput'; }).length;
+          });                                             /* allowed: the stream is kept and handed to the AR view */
         }, function (err) {
           if (refused(err)) { toPortfolio(); return; }                           /* the visitor said no (or the browser blocks the camera for this site) */
           say('The camera could not be started' + (err && err.name ? ' (' + err.name + ')' : '') + '. Use the buttons below to see my portfolio.');
